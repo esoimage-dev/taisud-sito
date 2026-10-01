@@ -940,6 +940,34 @@ table.req tbody tr:hover { background: #FAFBFD; }
 .f-bot::before { content: ""; position: absolute; left: var(--g); right: var(--g); top: 0; height: 1px; background: var(--line-d); }
 .page-hero:not(.text-only) .h-xl { font-size: clamp(40px, 4.6vw, 68px); }
 @media (max-width: 960px) { .hero.fleet { display: flex; flex-direction: column; } .hero.fleet > .wrap { order: 1; } .hero.fleet canvas#fleet { order: 2; } .hero.fleet .hero-foot { order: 3; } }
+
+/* ===== v5 fixes ===== */
+.trust .badges img, .brandcol .certs img { filter: none !important; opacity: 1 !important; }
+@media (max-width: 960px) { .hero.fleet canvas#fleet { height: min(470px, 118vw) !important; } }
+/* how it works on mobile: sticky diagram, vertical steps */
+@media (max-width: 860px) {
+  .how { display: block; }
+  .how-stage { position: sticky; top: var(--hdr); z-index: 3; height: min(46vh, 400px); aspect-ratio: auto; max-width: none; width: auto; margin: 0 calc(var(--g) * -1); padding: 10px var(--g); background: var(--abyss); box-shadow: 0 18px 24px -18px rgba(0,0,0,.6); }
+  .how-steps { display: block; overflow: visible; margin: 0; padding: 8px 0 0; }
+  .how-step { min-height: 52vh; padding: 28px 0 28px 22px; border: 0; border-left: 2px solid var(--line-d); border-radius: 0; background: none; opacity: .38; display: grid; align-content: center; }
+  .how-step.on { opacity: 1; border-left-color: var(--t-l); }
+  .how-step:last-child { min-height: 40vh; }
+  .how-step h3 { font-size: 24px; }
+  .how-step p { font-size: 16.5px; }
+}
+@media (max-width: 860px) {
+  .how { display: flex !important; flex-direction: column; }
+  .how-stage { order: -1; align-self: stretch; }
+  .how-stage > svg { max-height: 100%; }
+}
+@media (max-width: 860px) {
+  .how-stage { box-shadow: 0 -140px 0 0 var(--abyss), 0 18px 24px -18px rgba(0,0,0,.6) !important; }
+  .how-step:first-child { padding-top: 12px; }
+}
+@media (max-width: 860px) { .how-step:last-child { min-height: 56vh; } .how-stage { height: min(42vh, 360px); } }
+.cta-mz .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.cta-mz .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+@media (max-width: 860px) { .cta-mz .wrap { grid-template-columns: 1fr; } .cta-mz .mosaic { order: -1; } .cta-mz .ctas .btn { flex: 1 1 100%; justify-content: center; } }
 </style></head><body><a class="skip-link" href="#main">Vai al contenuto</a><svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -998,7 +1026,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <div class="mmenu" id="mmenu"><nav aria-label="Menu"><a href="taibox.html"><small>01</small>TaiBox<em>Blue box VMS</em></a><a href="t-fish.html"><small>02</small>T-Fish<em>Etichette del pescato</em></a><a href="prodotti.html" aria-current="page"><small>03</small>Prodotti e servizi<em>Satellite e manutenzione</em></a><a href="normativa.html"><small>04</small>Normativa<em>Scadenze, obblighi, FAQ</em></a><a href="assistenza.html"><small>05</small>Assistenza<em>Guasti e segnalazioni</em></a><a href="modulistica.html"><small>06</small>Modulistica<em>Questionario e installazione</em></a><a href="chi-siamo.html"><small>07</small>Chi siamo<em>Dal 1988 a Roma</em></a><a href="contatti.html"><small>08</small>Contatti<em>Preventivi e richieste</em></a></nav>
 <div class="mm-quick"><a href="tel:+390697840077"><span>Assistenza tecnica</span><b>Chiama<br>06 97840077</b></a><a href="contatti.html#taibox"><span>Preventivo TaiBox</span><b>Compila<br>la richiesta</b></a></div>
 <div class="mm-foot"><span>TAI SUD s.r.l.<br>Viale G. Bonelli 341, Roma</span><div class="tile-strip"><i></i><i style="--o:.7"></i><i style="--o:.45"></i><i style="--o:.25"></i></div></div></div><main id="main" tabindex="-1">
-<section class="page-hero text-only" style="padding-bottom:0"><div class="wrap" style="padding-bottom:clamp(32px,4vw,48px)"><div class="stack"><nav class="crumbs hin" aria-label="Percorso"><a href="home.html">Home</a><i></i><span>Prodotti e servizi</span></nav><span class="eyebrow hin rv"><i class="tile-ico "></i>Prodotti e servizi</span><h1 class="h-xl"><span class="ln"><span>Quello che serve</span></span><span class="ln"><span>a bordo e in banchina.</span></span></h1><p class="lead hin">Scegli da dove partire. Due prodotti e i servizi che li tengono operativi, da un unico referente.</p></div></div></section>
+<section class="page-hero"><canvas class="chart" data-boats="3" aria-hidden="true"></canvas><div class="wrap"><div class="stack"><nav class="crumbs hin" aria-label="Percorso"><a href="home.html">Home</a><i></i><span>Prodotti e servizi</span></nav><span class="eyebrow hin rv"><i class="tile-ico "></i>Prodotti e servizi</span><h1 class="h-xl"><span class="ln"><span>Quello che serve</span></span><span class="ln"><span>a bordo e in banchina.</span></span></h1><p class="lead hin">Due prodotti e i servizi che li tengono operativi, da un unico referente.</p></div><div class="side"><div class="mosaic " style="--cols:4;--rows:3" aria-hidden="true"><i class="" style="background-image:url(img/faro.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:66.7% 0.0%"></i><i class="tr" style="background-image:url(img/faro.jpg);background-position:100.0% 0.0%"></i><i class="f tl"></i><i class="" style="background-image:url(img/faro.jpg);background-position:33.3% 50.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:66.7% 50.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:100.0% 50.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:0.0% 100.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:33.3% 100.0%"></i><i class="" style="background-image:url(img/faro.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/faro.jpg);background-position:100.0% 100.0%"></i></div></div></div></section>
 <div class="split2">
 <a href="taibox.html"><figure class="photo "><img src="img/hero.jpg" alt="Peschereccio in navigazione" loading="lazy"><span class="ph">hero.jpg</span></figure><small>Per armatori e comandanti</small><b>TaiBox</b><span>La blue box che trasmette posizione e rotta al centro di controllo a terra.</span><em>Scopri la TaiBox <svg><use href="#i-arrow"/></svg></em></a>
 <a href="t-fish.html"><figure class="photo "><img src="img/mercato.jpg" alt="Pescato su ghiaccio" loading="lazy"><span class="ph">mercato.jpg</span></figure><small>Per pescherecci, mercati e grossisti</small><b>T-Fish</b><span>Etichette con codice a barre e QR code, stampate sul posto.</span><em>Scopri T-Fish <svg><use href="#i-arrow"/></svg></em></a>
@@ -1321,7 +1349,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     setStep(1);
     var mobile = mq('(max-width: 860px)');
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(+e.target.getAttribute('data-s')); }); },
-      mobile ? { root: $('.how-steps'), threshold: .6 } : { rootMargin: '-45% 0px -45% 0px' });
+      mobile ? { rootMargin: '-58% 0px -32% 0px' } : { rootMargin: '-45% 0px -45% 0px' });
     steps.forEach(function (s) { io.observe(s); });
   }
 
@@ -1484,7 +1512,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     var ro = $('#ping'), sp = ro ? ro.querySelector('span') : null, tmo;
     TaiFleet(cv, {
       focusRight: true, fadeLeft: true,
-      avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = hero.getBoundingClientRect(); return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
+      avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = cv.getBoundingClientRect(); if (a.bottom < b.top + 4 || a.top > b.bottom - 4) return null; return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
       onPing: function (e) { if (!sp) return; sp.textContent = e.label + ' · trasmissione ricevuta'; ro.classList.add('flash'); clearTimeout(tmo); tmo = setTimeout(function () { ro.classList.remove('flash'); }, 500); }
     }).start();
   })();

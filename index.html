@@ -940,6 +940,34 @@ table.req tbody tr:hover { background: #FAFBFD; }
 .f-bot::before { content: ""; position: absolute; left: var(--g); right: var(--g); top: 0; height: 1px; background: var(--line-d); }
 .page-hero:not(.text-only) .h-xl { font-size: clamp(40px, 4.6vw, 68px); }
 @media (max-width: 960px) { .hero.fleet { display: flex; flex-direction: column; } .hero.fleet > .wrap { order: 1; } .hero.fleet canvas#fleet { order: 2; } .hero.fleet .hero-foot { order: 3; } }
+
+/* ===== v5 fixes ===== */
+.trust .badges img, .brandcol .certs img { filter: none !important; opacity: 1 !important; }
+@media (max-width: 960px) { .hero.fleet canvas#fleet { height: min(470px, 118vw) !important; } }
+/* how it works on mobile: sticky diagram, vertical steps */
+@media (max-width: 860px) {
+  .how { display: block; }
+  .how-stage { position: sticky; top: var(--hdr); z-index: 3; height: min(46vh, 400px); aspect-ratio: auto; max-width: none; width: auto; margin: 0 calc(var(--g) * -1); padding: 10px var(--g); background: var(--abyss); box-shadow: 0 18px 24px -18px rgba(0,0,0,.6); }
+  .how-steps { display: block; overflow: visible; margin: 0; padding: 8px 0 0; }
+  .how-step { min-height: 52vh; padding: 28px 0 28px 22px; border: 0; border-left: 2px solid var(--line-d); border-radius: 0; background: none; opacity: .38; display: grid; align-content: center; }
+  .how-step.on { opacity: 1; border-left-color: var(--t-l); }
+  .how-step:last-child { min-height: 40vh; }
+  .how-step h3 { font-size: 24px; }
+  .how-step p { font-size: 16.5px; }
+}
+@media (max-width: 860px) {
+  .how { display: flex !important; flex-direction: column; }
+  .how-stage { order: -1; align-self: stretch; }
+  .how-stage > svg { max-height: 100%; }
+}
+@media (max-width: 860px) {
+  .how-stage { box-shadow: 0 -140px 0 0 var(--abyss), 0 18px 24px -18px rgba(0,0,0,.6) !important; }
+  .how-step:first-child { padding-top: 12px; }
+}
+@media (max-width: 860px) { .how-step:last-child { min-height: 56vh; } .how-stage { height: min(42vh, 360px); } }
+.cta-mz .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.cta-mz .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+@media (max-width: 860px) { .cta-mz .wrap { grid-template-columns: 1fr; } .cta-mz .mosaic { order: -1; } .cta-mz .ctas .btn { flex: 1 1 100%; justify-content: center; } }
 </style></head><body><a class="skip-link" href="#main">Vai al contenuto</a><svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1030,6 +1058,14 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <div class="t rv"><div class="badges"><img src="img/imq.png" alt="IMQ, ISO 9001:2015"><img src="img/accredia.png" alt="ACCREDIA"></div><span>Dal 1988 · Qualità ISO 9001:2015</span></div>
 </div></div>
 
+<section class="sec"><div class="wrap mt">
+<div class="mosaic rv" style="--cols:4;--rows:4" aria-hidden="true"><i class="tl" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 33.3%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 33.3%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 33.3%"></i><i class="f tr"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 66.7%"></i><i class="f bl"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 100.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 100.0%"></i></div>
+<div class="stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Chi siamo</span><h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
+<p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
+<ul class="blist rv"><li><i class="tile-ico"></i>TaiBox nell'elenco degli apparati autorizzati Masaf</li><li><i class="tile-ico"></i>Fornitore autorizzato di traffico satellitare e manutenzione</li><li><i class="tile-ico"></i>Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
+<a class="link-arrow rv" href="chi-siamo.html">La nostra storia <svg><use href="#i-arrow"/></svg></a></div>
+</div></section>
+
 <section class="sec dark"><div class="wrap">
 <div class="sec-head split"><div class="stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Normativa VMS</span><h2 class="h-l rv">Le scadenze del VMS.</h2><p class="lead rv">Dal 10 gennaio 2026 VMS e giornale di pesca elettronico sono obbligatori dai 12 metri in su. Dal 10 luglio 2027 la posizione va trasmessa ogni 30 minuti.</p></div>
 <div class="countdown rv"><b id="cd-days">--</b><span>giorni al<br>10 luglio 2027</span></div></div>
@@ -1087,13 +1123,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
 </svg></div>
 </div></div></section>
 
-<section class="sec"><div class="wrap mt">
-<div class="mosaic rv" style="--cols:4;--rows:4" aria-hidden="true"><i class="tl" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 33.3%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 33.3%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 33.3%"></i><i class="f tr"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 66.7%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 66.7%"></i><i class="f bl"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 100.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 100.0%"></i></div>
-<div class="stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Chi siamo</span><h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
-<p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
-<ul class="blist rv"><li><i class="tile-ico"></i>TaiBox nell'elenco degli apparati autorizzati Masaf</li><li><i class="tile-ico"></i>Fornitore autorizzato di traffico satellitare e manutenzione</li><li><i class="tile-ico"></i>Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
-<a class="link-arrow rv" href="chi-siamo.html">La nostra storia <svg><use href="#i-arrow"/></svg></a></div>
-</div></section>
+
 
 <section class="band"><figure class="photo "><img src="img/porto.jpg" alt="Porto del Mediterraneo" loading="lazy"><span class="ph">porto.jpg</span></figure>
 <div class="wrap on-photo"><span class="eyebrow rv"><i class="tile-ico"></i>Un unico referente</span><h2 class="h-l rv">Dal porto al largo, un solo numero da chiamare.</h2>
@@ -1119,7 +1149,11 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <div class="stack sticky"><span class="eyebrow hin rv"><i class="tile-ico "></i>FAQ</span><h2 class="h-l rv">Le domande degli armatori.</h2><p class="lead rv">Obblighi, frequenze e TaiBox in risposte brevi.</p><a class="btn ghost rv" href="normativa.html#faq" style="justify-self:start">Leggi tutte le FAQ <svg><use href="#i-arrow"/></svg></a></div>
 <div class="faq" data-faq="home"></div></div></section>
 <section class="sec tight" style="padding-bottom:16px"><div class="wrap"><span class="eyebrow hin rv"><i class="tile-ico "></i>Partner e fornitori</span></div><div class="marquee" style="margin-top:30px"><div class="track" data-partners></div></div></section>
-<section class="sec" style="padding-top:clamp(40px,5vw,72px)"><div class="wrap"><div class="cta-photo rv"><figure class="photo "><img src="img/faro.jpg" alt="" loading="lazy"><span class="ph">faro.jpg</span></figure><div class="in"><div><h2 class="h-l">Metti in regola la tua barca.</h2><p>Mandaci lunghezza e tipo di pesca. Ti indichiamo l'apparato richiesto e ti inviamo il preventivo.</p></div><div class="ctas"><a class="btn white" href="contatti.html#taibox">Richiedi il preventivo <svg><use href="#i-arrow"/></svg></a><a class="btn line-w" href="tel:+390697840077">Chiama 06 97840077</a></div></div></div></div></section></main><footer class="site-footer">
+<section class="sec cta-mz"><div class="wrap">
+<div class="mz-copy stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Preventivo TaiBox</span><h2 class="h-l rv">Metti in regola la tua barca.</h2><p class="lead rv">Mandaci lunghezza e tipo di pesca. Ti indichiamo l'apparato richiesto e ti inviamo il preventivo.</p><div class="ctas rv"><a class="btn" href="contatti.html#taibox">Richiedi il preventivo <svg><use href="#i-arrow"/></svg></a><a class="btn ghost" href="tel:+390697840077">Chiama 06 97840077</a></div></div>
+<div class="mosaic mz rv" style="--cols:5;--rows:4" aria-hidden="true"><i class="e"></i><i class="tl" style="background-image:url(img/hero.jpg);background-position:25.0% 0.0%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:50.0% 0.0%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:75.0% 0.0%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:100.0% 0.0%"></i><i class="tl" style="background-image:url(img/hero.jpg);background-position:0.0% 33.3%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:25.0% 33.3%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:50.0% 33.3%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:75.0% 33.3%"></i><i class="f tr"></i><i class="" style="background-image:url(img/hero.jpg);background-position:0.0% 66.7%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:25.0% 66.7%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:50.0% 66.7%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:75.0% 66.7%"></i><i class="br" style="background-image:url(img/hero.jpg);background-position:100.0% 66.7%"></i><i class="f bl"></i><i class="" style="background-image:url(img/hero.jpg);background-position:25.0% 100.0%"></i><i class="" style="background-image:url(img/hero.jpg);background-position:50.0% 100.0%"></i><i class="br" style="background-image:url(img/hero.jpg);background-position:75.0% 100.0%"></i><i class="e"></i></div>
+</div></section>
+</main><footer class="site-footer">
 <div class="wrap f-top">
 <div class="brandcol"><a href="home.html" aria-label="Tai Sud, home"><svg class="foot-mark" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 460.40 161.57" role="img" aria-labelledby="f-t">
 <title id="f-t">Tai Sud. Tecnologie Avanzate per l’Industria</title>
@@ -1435,11 +1469,12 @@ table.req tbody tr:hover { background: #FAFBFD; }
       c.clearRect(0, 0, stat.width, stat.height);
       c.setTransform(dpr, 0, 0, dpr, 0, 0);
       var hair = 1 / dpr;
+      c.fillStyle = '#DCE8F4'; c.fillRect(0, 0, W, H);
 
       // graticule
       var lonA = Math.ceil(ilon(0)), lonB = Math.floor(ilon(W));
       var latA = Math.ceil(ilat(H)), latB = Math.floor(ilat(0));
-      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.07)';
+      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.10)';
       c.lineWidth = Math.max(hair, 0.75);
       c.beginPath();
       var g;
@@ -1449,23 +1484,24 @@ table.req tbody tr:hover { background: #FAFBFD; }
 
       // bathymetry: offset outlines of the coast
       var u = S / 74; // scale-relative
-      contour(Math.max(5, 7 * u), 0.10, false);
-      contour(Math.max(10, 15 * u), 0.085, true);
-      contour(Math.max(16, 26 * u), 0.06, true);
+      contour(Math.max(5, 7 * u), 0.22, false);
+      contour(Math.max(10, 15 * u), 0.16, true);
+      contour(Math.max(16, 26 * u), 0.11, true);
 
       // land
       ringPath(c, false);
-      c.fillStyle = '#E3EAF3';
-      c.fill('nonzero');
+      c.save(); c.shadowColor = 'rgba(8,24,58,.18)'; c.shadowBlur = 14; c.shadowOffsetY = 4;
+      c.fillStyle = '#FFFFFF';
+      c.fill('nonzero'); c.restore();
       ringPath(c, true);
-      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.35)';
-      c.lineWidth = 1; c.lineJoin = 'round';
+      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.75)';
+      c.lineWidth = 1.3; c.lineJoin = 'round';
       c.stroke();
 
       // sea names
       if (opts.seaLabels !== false) {
-        c.fillStyle = 'rgba(' + NAVY_RGB + ',.30)';
-        c.font = 'italic ' + (narrow ? 8.5 : 9.5) + 'px ' + MONO;
+        c.fillStyle = 'rgba(' + NAVY_RGB + ',.5)';
+        c.font = 'italic ' + (narrow ? 9 : 10.5) + 'px ' + MONO;
         c.textBaseline = 'middle';
         var seas = [['MAR TIRRENO', 11.6, 40.05, 0], ['MAR ADRIATICO', 15.2, 43.05, -33], ['MAR IONIO', narrow ? 17.2 : 18.3, narrow ? 37.25 : 38.2, 0]];
         if (!narrow) seas.push(['MAR LIGURE', 8.85, 43.75, 0]);
@@ -1481,7 +1517,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
       // graticule labels: bottom (lon) and right (lat)
       c.font = '10px ' + MONO;
       c.fillStyle = 'rgba(' + NAVY_RGB + ',.45)';
-      c.strokeStyle = 'rgba(242,245,249,.92)'; c.lineWidth = 3; c.lineJoin = 'round';
+      c.strokeStyle = 'rgba(220,232,244,.92)'; c.lineWidth = 3; c.lineJoin = 'round';
       var stepL = narrow ? 2 : 1;
       c.textBaseline = 'alphabetic'; c.textAlign = 'center';
       for (g = lonA; g <= lonB; g++) {
@@ -1504,10 +1540,10 @@ table.req tbody tr:hover { background: #FAFBFD; }
       if (!narrow && focusRight && opts.fadeLeft !== false) {
         c.save();
         c.setTransform(1, 0, 0, 1, 0, 0);
-        var gr = c.createLinearGradient(0, 0, W * 0.46 * dpr, 0);
-        gr.addColorStop(0, 'rgba(0,0,0,.62)'); gr.addColorStop(0.55, 'rgba(0,0,0,.35)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+        var gr = c.createLinearGradient(0, 0, W * 0.5 * dpr, 0);
+        gr.addColorStop(0, 'rgba(0,0,0,.86)'); gr.addColorStop(0.6, 'rgba(0,0,0,.55)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
         c.globalCompositeOperation = 'destination-out';
-        c.fillStyle = gr; c.fillRect(0, 0, W * 0.46 * dpr, H * dpr);
+        c.fillStyle = gr; c.fillRect(0, 0, W * 0.5 * dpr, H * dpr);
         c.restore();
       }
 
@@ -1618,14 +1654,14 @@ table.req tbody tr:hover { background: #FAFBFD; }
       for (var i = 0; i < b.wake.length; i++) {
         var p = b.wake[i];
         c.fillStyle = 'rgba(' + CYAN_RGB + ',' + (0.42 * (1 - i / b.wake.length) * w).toFixed(3) + ')';
-        c.beginPath(); c.arc(px(p.lon), py(p.lat), 1.15, 0, Math.PI * 2); c.fill();
+        c.beginPath(); c.arc(px(p.lon), py(p.lat), 1.6, 0, Math.PI * 2); c.fill();
       }
       // chevron (screen y is flipped)
       c.save();
       c.translate(x, y); c.rotate(-b.hd);
       c.globalAlpha = w;
       c.beginPath();
-      c.moveTo(5.5, 0); c.lineTo(-4, -3.8); c.lineTo(-1.8, 0); c.lineTo(-4, 3.8); c.closePath();
+      c.moveTo(8, 0); c.lineTo(-5.5, -5.2); c.lineTo(-2.4, 0); c.lineTo(-5.5, 5.2); c.closePath();
       c.fillStyle = NAVY; c.fill();
       if (emph > 0) {
         c.globalAlpha = w * emph;
@@ -1711,7 +1747,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     function ring(c, x, y, r, a, lw) {
       if (a <= 0) return;
       c.strokeStyle = 'rgba(' + CYAN_RGB + ',' + a.toFixed(3) + ')';
-      c.lineWidth = lw || 1.2;
+      c.lineWidth = lw || 2;
       c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.stroke();
     }
     function drawTx(c, tx, tt) {
@@ -2116,7 +2152,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     setStep(1);
     var mobile = mq('(max-width: 860px)');
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(+e.target.getAttribute('data-s')); }); },
-      mobile ? { root: $('.how-steps'), threshold: .6 } : { rootMargin: '-45% 0px -45% 0px' });
+      mobile ? { rootMargin: '-58% 0px -32% 0px' } : { rootMargin: '-45% 0px -45% 0px' });
     steps.forEach(function (s) { io.observe(s); });
   }
 
@@ -2279,7 +2315,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     var ro = $('#ping'), sp = ro ? ro.querySelector('span') : null, tmo;
     TaiFleet(cv, {
       focusRight: true, fadeLeft: true,
-      avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = hero.getBoundingClientRect(); return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
+      avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = cv.getBoundingClientRect(); if (a.bottom < b.top + 4 || a.top > b.bottom - 4) return null; return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
       onPing: function (e) { if (!sp) return; sp.textContent = e.label + ' · trasmissione ricevuta'; ro.classList.add('flash'); clearTimeout(tmo); tmo = setTimeout(function () { ro.classList.remove('flash'); }, 500); }
     }).start();
   })();

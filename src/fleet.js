@@ -235,11 +235,12 @@
       c.clearRect(0, 0, stat.width, stat.height);
       c.setTransform(dpr, 0, 0, dpr, 0, 0);
       var hair = 1 / dpr;
+      c.fillStyle = '#DCE8F4'; c.fillRect(0, 0, W, H);
 
       // graticule
       var lonA = Math.ceil(ilon(0)), lonB = Math.floor(ilon(W));
       var latA = Math.ceil(ilat(H)), latB = Math.floor(ilat(0));
-      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.07)';
+      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.10)';
       c.lineWidth = Math.max(hair, 0.75);
       c.beginPath();
       var g;
@@ -249,23 +250,24 @@
 
       // bathymetry: offset outlines of the coast
       var u = S / 74; // scale-relative
-      contour(Math.max(5, 7 * u), 0.10, false);
-      contour(Math.max(10, 15 * u), 0.085, true);
-      contour(Math.max(16, 26 * u), 0.06, true);
+      contour(Math.max(5, 7 * u), 0.22, false);
+      contour(Math.max(10, 15 * u), 0.16, true);
+      contour(Math.max(16, 26 * u), 0.11, true);
 
       // land
       ringPath(c, false);
-      c.fillStyle = '#E3EAF3';
-      c.fill('nonzero');
+      c.save(); c.shadowColor = 'rgba(8,24,58,.18)'; c.shadowBlur = 14; c.shadowOffsetY = 4;
+      c.fillStyle = '#FFFFFF';
+      c.fill('nonzero'); c.restore();
       ringPath(c, true);
-      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.35)';
-      c.lineWidth = 1; c.lineJoin = 'round';
+      c.strokeStyle = 'rgba(' + NAVY_RGB + ',.75)';
+      c.lineWidth = 1.3; c.lineJoin = 'round';
       c.stroke();
 
       // sea names
       if (opts.seaLabels !== false) {
-        c.fillStyle = 'rgba(' + NAVY_RGB + ',.30)';
-        c.font = 'italic ' + (narrow ? 8.5 : 9.5) + 'px ' + MONO;
+        c.fillStyle = 'rgba(' + NAVY_RGB + ',.5)';
+        c.font = 'italic ' + (narrow ? 9 : 10.5) + 'px ' + MONO;
         c.textBaseline = 'middle';
         var seas = [['MAR TIRRENO', 11.6, 40.05, 0], ['MAR ADRIATICO', 15.2, 43.05, -33], ['MAR IONIO', narrow ? 17.2 : 18.3, narrow ? 37.25 : 38.2, 0]];
         if (!narrow) seas.push(['MAR LIGURE', 8.85, 43.75, 0]);
@@ -281,7 +283,7 @@
       // graticule labels: bottom (lon) and right (lat)
       c.font = '10px ' + MONO;
       c.fillStyle = 'rgba(' + NAVY_RGB + ',.45)';
-      c.strokeStyle = 'rgba(242,245,249,.92)'; c.lineWidth = 3; c.lineJoin = 'round';
+      c.strokeStyle = 'rgba(220,232,244,.92)'; c.lineWidth = 3; c.lineJoin = 'round';
       var stepL = narrow ? 2 : 1;
       c.textBaseline = 'alphabetic'; c.textAlign = 'center';
       for (g = lonA; g <= lonB; g++) {
@@ -304,10 +306,10 @@
       if (!narrow && focusRight && opts.fadeLeft !== false) {
         c.save();
         c.setTransform(1, 0, 0, 1, 0, 0);
-        var gr = c.createLinearGradient(0, 0, W * 0.46 * dpr, 0);
-        gr.addColorStop(0, 'rgba(0,0,0,.62)'); gr.addColorStop(0.55, 'rgba(0,0,0,.35)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+        var gr = c.createLinearGradient(0, 0, W * 0.5 * dpr, 0);
+        gr.addColorStop(0, 'rgba(0,0,0,.86)'); gr.addColorStop(0.6, 'rgba(0,0,0,.55)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
         c.globalCompositeOperation = 'destination-out';
-        c.fillStyle = gr; c.fillRect(0, 0, W * 0.46 * dpr, H * dpr);
+        c.fillStyle = gr; c.fillRect(0, 0, W * 0.5 * dpr, H * dpr);
         c.restore();
       }
 
@@ -418,14 +420,14 @@
       for (var i = 0; i < b.wake.length; i++) {
         var p = b.wake[i];
         c.fillStyle = 'rgba(' + CYAN_RGB + ',' + (0.42 * (1 - i / b.wake.length) * w).toFixed(3) + ')';
-        c.beginPath(); c.arc(px(p.lon), py(p.lat), 1.15, 0, Math.PI * 2); c.fill();
+        c.beginPath(); c.arc(px(p.lon), py(p.lat), 1.6, 0, Math.PI * 2); c.fill();
       }
       // chevron (screen y is flipped)
       c.save();
       c.translate(x, y); c.rotate(-b.hd);
       c.globalAlpha = w;
       c.beginPath();
-      c.moveTo(5.5, 0); c.lineTo(-4, -3.8); c.lineTo(-1.8, 0); c.lineTo(-4, 3.8); c.closePath();
+      c.moveTo(8, 0); c.lineTo(-5.5, -5.2); c.lineTo(-2.4, 0); c.lineTo(-5.5, 5.2); c.closePath();
       c.fillStyle = NAVY; c.fill();
       if (emph > 0) {
         c.globalAlpha = w * emph;
@@ -511,7 +513,7 @@
     function ring(c, x, y, r, a, lw) {
       if (a <= 0) return;
       c.strokeStyle = 'rgba(' + CYAN_RGB + ',' + a.toFixed(3) + ')';
-      c.lineWidth = lw || 1.2;
+      c.lineWidth = lw || 2;
       c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.stroke();
     }
     function drawTx(c, tx, tt) {

@@ -37,6 +37,14 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 <div class="t rv"><div class="badges"><img src="img/imq.png" alt="IMQ, ISO 9001:2015"><img src="img/accredia.png" alt="ACCREDIA"></div><span>Dal 1988 · Qualità ISO 9001:2015</span></div>
 </div></div>
 
+<section class="sec"><div class="wrap mt">
+{mosaic('pescatore-reti.jpg', ['tl s s s', 's s s ftr', 's s s s', 'fbl s s br'], 'rv')}
+<div class="stack">{eb('Chi siamo')}<h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
+<p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
+<ul class="blist rv"><li>{TI}TaiBox nell'elenco degli apparati autorizzati Masaf</li><li>{TI}Fornitore autorizzato di traffico satellitare e manutenzione</li><li>{TI}Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
+<a class="link-arrow rv" href="chi-siamo.html">La nostra storia {A}</a></div>
+</div></section>
+
 <section class="sec dark"><div class="wrap">
 <div class="sec-head split"><div class="stack">{eb('Normativa VMS')}<h2 class="h-l rv">Le scadenze del VMS.</h2><p class="lead rv">Dal 10 gennaio 2026 VMS e giornale di pesca elettronico sono obbligatori dai 12 metri in su. Dal 10 luglio 2027 la posizione va trasmessa ogni 30 minuti.</p></div>
 <div class="countdown rv"><b id="cd-days">--</b><span>giorni al<br>10 luglio 2027</span></div></div>
@@ -66,13 +74,7 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 
 {HOWSEC}
 
-<section class="sec"><div class="wrap mt">
-{mosaic('pescatore-reti.jpg', ['tl s s s', 's s s ftr', 's s s s', 'fbl s s br'], 'rv')}
-<div class="stack">{eb('Chi siamo')}<h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
-<p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
-<ul class="blist rv"><li>{TI}TaiBox nell'elenco degli apparati autorizzati Masaf</li><li>{TI}Fornitore autorizzato di traffico satellitare e manutenzione</li><li>{TI}Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
-<a class="link-arrow rv" href="chi-siamo.html">La nostra storia {A}</a></div>
-</div></section>
+
 
 <section class="band">{photo('porto.jpg', 'Porto del Mediterraneo')}
 <div class="wrap on-photo"><span class="eyebrow rv">{TI}Un unico referente</span><h2 class="h-l rv">Dal porto al largo, un solo numero da chiamare.</h2>
@@ -96,7 +98,11 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 </div></div></section>
 {FAQ_SEC.replace('Risposte brevi sulle regole VMS e sulla TaiBox.', 'Obblighi, frequenze e TaiBox in risposte brevi.').replace('>Tutte le FAQ ', '>Leggi tutte le FAQ ')}
 {PARTNERS}
-''' + cta('Metti in regola la tua barca.', 'Mandaci lunghezza e tipo di pesca. Ti indichiamo l\'apparato richiesto e ti inviamo il preventivo.', ('Richiedi il preventivo', 'contatti.html#taibox'), ('Chiama 06 97840077', 'tel:+390697840077')))
+<section class="sec cta-mz"><div class="wrap">
+<div class="mz-copy stack">{eb('Preventivo TaiBox')}<h2 class="h-l rv">Metti in regola la tua barca.</h2><p class="lead rv">Mandaci lunghezza e tipo di pesca. Ti indichiamo l'apparato richiesto e ti inviamo il preventivo.</p><div class="ctas rv"><a class="btn" href="contatti.html#taibox">Richiedi il preventivo {A}</a><a class="btn ghost" href="tel:+390697840077">Chiama 06 97840077</a></div></div>
+{mosaic('hero.jpg', ['. tl s s s', 'tl s s s ftr', 's s s s br', 'fbl s s br .'], 'mz rv')}
+</div></section>
+''')
 
 # ---- chi siamo copy
 cs = P['chi-siamo'][1]
@@ -121,7 +127,7 @@ P['chi-siamo'] = ('Chi siamo', cs.replace('Tai Sud progetta, produce e assiste',
 
 # ---- prodotti: split hero
 P['prodotti'] = ('Prodotti e servizi', f'''
-<section class="page-hero text-only" style="padding-bottom:0"><div class="wrap" style="padding-bottom:clamp(32px,4vw,48px)"><div class="stack">{crumbs(('Prodotti e servizi',))}{eb('Prodotti e servizi')}{h1(['Quello che serve', 'a bordo e in banchina.'])}<p class="lead hin">Scegli da dove partire. Due prodotti e i servizi che li tengono operativi, da un unico referente.</p></div></div></section>
+{page_hero(crumbs(('Prodotti e servizi',)), 'Prodotti e servizi', ['Quello che serve', 'a bordo e in banchina.'], 'Due prodotti e i servizi che li tengono operativi, da un unico referente.', mosaic('faro.jpg', ['s s s tr', 'ftl s s s', 's s s br']))}
 <div class="split2">
 <a href="taibox.html">{photo('hero.jpg', 'Peschereccio in navigazione')}<small>Per armatori e comandanti</small><b>TaiBox</b><span>La blue box che trasmette posizione e rotta al centro di controllo a terra.</span><em>Scopri la TaiBox {A}</em></a>
 <a href="t-fish.html">{photo('mercato.jpg', 'Pescato su ghiaccio')}<small>Per pescherecci, mercati e grossisti</small><b>T-Fish</b><span>Etichette con codice a barre e QR code, stampate sul posto.</span><em>Scopri T-Fish {A}</em></a>
