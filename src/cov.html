@@ -1,0 +1,197 @@
+<section class="cov" data-cov data-mode="acs" aria-labelledby="cov-title">
+  <div class="cov__wrap">
+    <header class="cov__head">
+      <p class="cov__eyebrow">
+        <svg class="cov__tile" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M1 1h18L10 10z" fill="#8AD2F2"/><path d="M1 1v18l9-9z" fill="#30A0DA"/><path d="M19 1v18l-9-9z" fill="#30A0DA"/><path d="M1 19h18l-9-9z" fill="#288DCC"/><path d="M1 1h18v18H1z" fill="none" stroke="#193D88" stroke-width="1.5"/></svg>
+        Monitoraggio delle imbarcazioni
+      </p>
+      <h2 class="cov__title" id="cov-title">ACS, ACI o ACM</h2>
+      <p class="cov__lede">Tre famiglie di apparati, tre modi diversi di far arrivare a terra la posizione della barca. Scegli un apparato per vedere dove trasmette.</p>
+    </header>
+
+    <div class="cov__grid">
+      <figure class="cov__figure">
+        <div class="cov__diagram">
+          <svg class="cov__svg" viewBox="0 0 1000 540" role="img" aria-labelledby="cov-svg-title cov-svg-desc" focusable="false">
+            <title id="cov-svg-title">Schema di copertura</title>
+            <desc id="cov-svg-desc">Sezione laterale dal porto al mare aperto: un ripetitore di rete mobile sulla costa copre il porto e il mare vicino, la linea delle 12 miglia separa il mare costiero dal mare aperto, un satellite copre tutte le zone. Tre barche: in porto, entro le 12 miglia e oltre le 12 miglia.</desc>
+            <defs>
+              <linearGradient id="cov-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" class="cov-st-paper"/>
+                <stop offset="1" class="cov-st-mist"/>
+              </linearGradient>
+              <linearGradient id="cov-sea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#CFE9F8"/>
+                <stop offset="1" stop-color="#A9D5EE"/>
+              </linearGradient>
+              <linearGradient id="cov-beam" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#30A0DA" stop-opacity=".30"/>
+                <stop offset="1" stop-color="#30A0DA" stop-opacity=".04"/>
+              </linearGradient>
+              <radialGradient id="cov-cell" cx="105" cy="160" r="500" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#1F6FA8" stop-opacity=".16"/>
+                <stop offset=".85" stop-color="#1F6FA8" stop-opacity=".03"/>
+                <stop offset="1" stop-color="#1F6FA8" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="cov-land" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E3EAF3"/>
+                <stop offset="1" stop-color="#CBD6E4"/>
+              </linearGradient>
+              <clipPath id="cov-clip-air"><rect x="0" y="0" width="1000" height="372"/></clipPath>
+              <g id="cov-boat">
+                <path class="cov-boat__hull" d="M-50 -12 H52 L40 8 H-40 Z"/>
+                <path class="cov-boat__deck" d="M-50 -12 H52" />
+                <rect class="cov-boat__cabin" x="-26" y="-38" width="30" height="26" rx="3"/>
+                <rect class="cov-boat__win" x="-21" y="-32" width="9" height="7" rx="1"/>
+                <rect class="cov-boat__win" x="-9" y="-32" width="9" height="7" rx="1"/>
+                <path class="cov-boat__rig" d="M18 -12 V-62 M18 -54 L46 -14"/>
+                <path class="cov-boat__unit" d="M-16 -38 a5 5 0 0 1 10 0 z"/>
+              </g>
+            </defs>
+
+            <!-- sky and sea -->
+            <rect x="0" y="0" width="1000" height="372" fill="url(#cov-sky)"/>
+            <rect x="0" y="370" width="1000" height="170" fill="url(#cov-sea)"/>
+            <path class="cov-wave" d="M0 370 Q 25 365 50 370 T 100 370 T 150 370 T 200 370 T 250 370 T 300 370 T 350 370 T 400 370 T 450 370 T 500 370 T 550 370 T 600 370 T 650 370 T 700 370 T 750 370 T 800 370 T 850 370 T 900 370 T 950 370 T 1000 370"/>
+            <path class="cov-wave cov-wave--deep" d="M260 412 q 20 -4 40 0 t 40 0 M520 430 q 20 -4 40 0 t 40 0 M700 404 q 20 -4 40 0 t 40 0 M880 440 q 20 -4 40 0 t 40 0 M120 446 q 20 -4 40 0 t 40 0"/>
+
+            <!-- satellite beam -->
+            <path class="cov-beam" d="M762 114 H798 L1040 370 H-40 Z" fill="url(#cov-beam)"/>
+
+            <!-- mobile network coverage -->
+            <g class="cov-cell" clip-path="url(#cov-clip-air)">
+              <circle cx="105" cy="160" r="500" fill="url(#cov-cell)"/>
+              <path class="cov-arc" style="--o:0.62" d="M172.6 141.9 A70 70 0 0 1 126.6 226.6"/>
+              <path class="cov-arc" style="--o:0.52" d="M240.2 123.8 A140 140 0 0 1 148.3 293.1"/>
+              <path class="cov-arc" style="--o:0.42" d="M307.8 105.6 A210 210 0 0 1 169.9 359.7"/>
+              <path class="cov-arc" style="--o:0.32" d="M375.5 87.5 A280 280 0 0 1 191.5 426.3"/>
+              <path class="cov-arc" style="--o:0.22" d="M443.1 69.4 A350 350 0 0 1 213.2 492.9"/>
+              <path class="cov-arc" style="--o:0.13" d="M510.7 51.3 A420 420 0 0 1 234.8 559.4"/>
+              <path class="cov-arc" style="--o:0.06" d="M578.3 33.2 A490 490 0 0 1 256.4 626.0"/>
+              <circle class="cov-ripple" cx="105" cy="160" r="490"/>
+            </g>
+
+            <!-- land, port, lighthouse -->
+            <path class="cov-land" d="M0 252 C 50 244 100 248 132 268 C 152 282 162 306 170 346 H 250 V 384 H 0 Z" fill="url(#cov-land)"/>
+            <path class="cov-coast" d="M0 252 C 50 244 100 248 132 268 C 152 282 162 306 170 346 H 250 V 384"/>
+            <g class="cov-build">
+              <rect x="18" y="232" width="34" height="18" rx="2"/>
+              <rect x="56" y="238" width="22" height="12" rx="2"/>
+              <path d="M18 232 L35 222 L52 232"/>
+            </g>
+            <g class="cov-light">
+              <path class="cov-light__tower" d="M232 346 L235 300 H245 L248 346 Z"/>
+              <path class="cov-light__band" d="M233.5 324 H246.5 L247.3 334 H232.7 Z"/>
+              <rect class="cov-light__lamp" x="235" y="292" width="10" height="8" rx="2"/>
+            </g>
+            <g class="cov-bollards">
+              <rect x="186" y="340" width="6" height="6" rx="1.5"/>
+              <rect x="212" y="340" width="6" height="6" rx="1.5"/>
+            </g>
+
+            <!-- mobile mast -->
+            <g class="cov-mast">
+              <path class="cov-mast__legs" d="M93 252 L102 162 M117 252 L108 162 M95.5 226 L114.5 226 M97.5 204 L112.5 204 M99.5 182 L110.5 182 M95.5 226 L112.5 204 L99.5 182"/>
+              <rect class="cov-mast__panel" x="95" y="158" width="6" height="16" rx="1.5"/>
+              <rect class="cov-mast__panel" x="109" y="158" width="6" height="16" rx="1.5"/>
+              <circle class="cov-mast__top" cx="105" cy="160" r="5"/>
+            </g>
+
+            <!-- 12 mile limit -->
+            <line class="cov-limit" x1="620" y1="158" x2="620" y2="520"/>
+
+            <!-- links: from source to boat unit -->
+            <g class="cov-links">
+              <line class="cov-link cov-link--sat" data-link="sat-b1" x1="780" y1="114" x2="294" y2="330"/>
+              <line class="cov-link cov-link--sat" data-link="sat-b2" x1="780" y1="114" x2="459" y2="330"/>
+              <line class="cov-link cov-link--sat" data-link="sat-b3" x1="780" y1="114" x2="819" y2="330"/>
+              <line class="cov-link cov-link--mob" data-link="mob-b1" x1="105" y1="160" x2="294" y2="330"/>
+              <line class="cov-link cov-link--mob" data-link="mob-b2" x1="105" y1="160" x2="459" y2="330"/>
+              <line class="cov-link cov-link--fail" data-link="fail-b3" x1="105" y1="160" x2="819" y2="330"/>
+            </g>
+            <g class="cov-dots" aria-hidden="true"></g>
+
+            <!-- satellite -->
+            <g class="cov-sat" transform="translate(780 88)">
+              <g class="cov-sat__float">
+                <rect class="cov-sat__panel" x="-88" y="-12" width="70" height="24" rx="2"/>
+                <rect class="cov-sat__panel" x="18" y="-12" width="70" height="24" rx="2"/>
+                <path class="cov-sat__grid" d="M-70.5 -12 V12 M-53 -12 V12 M-35.5 -12 V12 M-88 0 H-18 M35.5 -12 V12 M53 -12 V12 M70.5 -12 V12 M18 0 H88"/>
+                <path class="cov-sat__arm" d="M-18 0 H-13 M13 0 H18"/>
+                <rect class="cov-sat__body" x="-13" y="-18" width="26" height="34" rx="3"/>
+                <path class="cov-sat__stripe" d="M-13 -6 H13"/>
+                <path class="cov-sat__dish" d="M-9 18 Q0 30 9 18 Z"/>
+              </g>
+            </g>
+
+            <!-- boats -->
+            <g class="cov-boat" data-boat="b1" transform="translate(305 370)">
+              <g class="cov-boat__bob" style="--d:0s"><use href="#cov-boat"/></g>
+              <g class="cov-status" transform="translate(-11 -62)"><circle r="9"/><path class="cov-status__ok" d="M-4 0 L-1 3 L4.5 -3"/><path class="cov-status__no" d="M-3.5 -3.5 L3.5 3.5 M3.5 -3.5 L-3.5 3.5"/></g>
+            </g>
+            <g class="cov-boat" data-boat="b2" transform="translate(470 370)">
+              <g class="cov-boat__bob" style="--d:-1.3s"><use href="#cov-boat"/></g>
+              <g class="cov-status" transform="translate(-11 -62)"><circle r="9"/><path class="cov-status__ok" d="M-4 0 L-1 3 L4.5 -3"/><path class="cov-status__no" d="M-3.5 -3.5 L3.5 3.5 M3.5 -3.5 L-3.5 3.5"/></g>
+            </g>
+            <g class="cov-boat" data-boat="b3" transform="translate(830 370)">
+              <g class="cov-boat__bob" style="--d:-2.4s"><use href="#cov-boat"/></g>
+              <g class="cov-status" transform="translate(-11 -62)"><circle r="9"/><path class="cov-status__ok" d="M-4 0 L-1 3 L4.5 -3"/><path class="cov-status__no" d="M-3.5 -3.5 L3.5 3.5 M3.5 -3.5 L-3.5 3.5"/></g>
+            </g>
+
+            <!-- zone bars -->
+            <g class="cov-zones">
+              <line class="cov-zone" data-zone="porto" x1="16" y1="508" x2="350" y2="508"/>
+              <line class="cov-zone" data-zone="entro" x1="372" y1="508" x2="608" y2="508"/>
+              <line class="cov-zone" data-zone="oltre" x1="632" y1="508" x2="984" y2="508"/>
+            </g>
+          </svg>
+
+          <!-- HTML labels keep a readable size at any width -->
+          <span class="cov-lbl cov-lbl--sat" style="--x:78%;--y:7.2%">Satellite</span>
+          <span class="cov-lbl cov-lbl--mast" style="--x:1.2%;--y:23%">Rete mobile</span>
+          <span class="cov-lbl cov-lbl--limit" style="--x:62%;--y:26%">12 miglia</span>
+          <span class="cov-lbl cov-lbl--nosig" style="--x:83%;--y:47%">Nessun segnale</span>
+          <span class="cov-lbl cov-lbl--zone" style="--x:18.3%;--y:87.5%">Porto</span>
+          <span class="cov-lbl cov-lbl--zone" style="--x:49%;--y:87.5%">Entro <span class="cov-lbl__l2">12 miglia</span></span>
+          <span class="cov-lbl cov-lbl--zone" style="--x:80.8%;--y:87.5%">Oltre <span class="cov-lbl__l2">12 miglia</span></span>
+        </div>
+        <figcaption class="cov__legend">
+          <span class="cov__key cov__key--sat">Collegamento satellitare</span>
+          <span class="cov__key cov__key--mob">Rete mobile</span>
+          <span class="cov__key cov__key--fail">Fuori copertura</span>
+        </figcaption>
+      </figure>
+
+      <div class="cov__side">
+        <div class="cov__tabs" role="tablist" aria-label="Tipo di apparato">
+          <button class="cov__tab" role="tab" id="cov-tab-acs" data-mode="acs" aria-selected="true" aria-controls="cov-panel" tabindex="0">
+            <span class="cov__tab-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9h7v6H3zM14 9h7v6h-7zM10 12h4M12 15v4M9 21h6"/></svg></span>
+            <span class="cov__tab-txt"><span class="cov__tab-code">ACS</span><span class="cov__tab-name">Satellitare</span></span>
+            <span class="cov__badge">TaiBox</span>
+          </button>
+          <button class="cov__tab" role="tab" id="cov-tab-aci" data-mode="aci" aria-selected="false" aria-controls="cov-panel" tabindex="-1">
+            <span class="cov__tab-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 7h6v4H2zM10 9h2M8 9h2M6 11v3"/><path d="M17 21V9M14 21l3-12 3 12M14.5 14h5M13 6a5.5 5.5 0 0 1 8 0"/></svg></span>
+            <span class="cov__tab-txt"><span class="cov__tab-code">ACI</span><span class="cov__tab-name">Ibrido</span></span>
+          </button>
+          <button class="cov__tab" role="tab" id="cov-tab-acm" data-mode="acm" aria-selected="false" aria-controls="cov-panel" tabindex="-1">
+            <span class="cov__tab-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V9M8 21l4-12 4 12M9 15h6M8 6a5.5 5.5 0 0 1 8 0M5 3.5a9.5 9.5 0 0 1 14 0"/></svg></span>
+            <span class="cov__tab-txt"><span class="cov__tab-code">ACM</span><span class="cov__tab-name">Rete mobile</span></span>
+          </button>
+        </div>
+
+        <div class="cov__panel" id="cov-panel" role="tabpanel" aria-labelledby="cov-tab-acs" tabindex="0">
+          <div class="cov__live" aria-live="polite" aria-atomic="true">
+            <p class="cov__kicker">Apparato di controllo satellitare</p>
+            <p class="cov__text">Trasmette la posizione via satellite: è valido anche oltre le 12 miglia e dove la rete mobile non arriva.</p>
+            <p class="cov__note"><span class="cov__badge">TaiBox</span> TaiBox è un ACS.</p>
+          </div>
+          <ul class="cov__zones" aria-label="Copertura per zona">
+            <li data-state="ok"><span class="cov__zname">Porto</span><span class="cov__zval">Via satellite</span></li>
+            <li data-state="ok"><span class="cov__zname">Entro 12 miglia</span><span class="cov__zval">Via satellite</span></li>
+            <li data-state="ok"><span class="cov__zname">Oltre 12 miglia</span><span class="cov__zval">Via satellite</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

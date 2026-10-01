@@ -1,0 +1,132 @@
+<section class="tf" data-tf data-step="1" aria-labelledby="tf-title">
+  <div class="tf__wrap">
+    <header class="tf__head">
+      <p class="tf__eyebrow">
+        <svg class="tf__tile" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M1 1h18L10 10z" fill="#8AD2F2"/><path d="M1 1v18l9-9z" fill="#30A0DA"/><path d="M19 1v18l-9-9z" fill="#30A0DA"/><path d="M1 19h18l-9-9z" fill="#288DCC"/><path d="M1 1h18v18H1z" fill="none" stroke="#193D88" stroke-width="1.5"/></svg>
+        T-Fish, etichettatura e tracciabilità
+      </p>
+      <h2 class="tf__title" id="tf-title">Dal palmare all'etichetta</h2>
+      <p class="tf__lede">Quattro passaggi, dalla registrazione della cattura alla scansione lungo la filiera.</p>
+    </header>
+
+    <div class="tf__grid">
+      <div class="tf__stage" id="tf-stage" role="tabpanel" aria-labelledby="tf-step-1" tabindex="-1">
+        <div class="tf__canvas" aria-hidden="true">
+
+          <!-- Handheld -->
+          <div class="tf-hh">
+            <div class="tf-hh__scan"></div>
+            <div class="tf-hh__screen">
+              <div class="tf-scr__status"><span>07:42</span><span class="tf-scr__batt"></span></div>
+              <div class="tf-scr__bar">
+                <svg class="tf-scr__logo" viewBox="0 0 20 20"><path d="M1 1h18L10 10z" fill="#8AD2F2"/><path d="M1 1v18l9-9z" fill="#30A0DA"/><path d="M19 1v18l-9-9z" fill="#30A0DA"/><path d="M1 19h18l-9-9z" fill="#288DCC"/></svg>
+                <b>T-Fish</b><span class="tf-scr__ctx tf-scr__ctx--form">Nuova cattura</span><span class="tf-scr__ctx tf-scr__ctx--codes">Lotto L-0428</span>
+              </div>
+
+              <div class="tf-scr tf-scr--form">
+                <div class="tf-fld"><span class="tf-fld__k">Specie</span><span class="tf-fld__v" data-value="Triglia di fango">Triglia di fango</span></div>
+                <div class="tf-fld"><span class="tf-fld__k">Zona FAO</span><span class="tf-fld__v" data-value="37.2.1">37.2.1</span></div>
+                <div class="tf-fld"><span class="tf-fld__k">Attrezzo</span><span class="tf-fld__v" data-value="Reti a strascico">Reti a strascico</span></div>
+                <div class="tf-fld"><span class="tf-fld__k">Data cattura</span><span class="tf-fld__v" data-value="01/10/2026">01/10/2026</span></div>
+                <div class="tf-fld"><span class="tf-fld__k">Lotto</span><span class="tf-fld__v" data-value="L-0428">L-0428</span></div>
+                <span class="tf-scr__btn">Genera etichetta</span>
+              </div>
+
+              <div class="tf-scr tf-scr--codes">
+                <div class="tf-codes__qr"><svg data-tf-qr></svg></div>
+                <div class="tf-codes__bar"><svg data-tf-bar preserveAspectRatio="none"></svg><span>L-0428</span></div>
+                <span class="tf-codes__ok">Pronta per la stampa</span>
+              </div>
+            </div>
+            <div class="tf-hh__keys"><i></i><i class="tf-hh__trigger"></i><i></i></div>
+          </div>
+
+          <!-- Printer with label feed -->
+          <div class="tf-pg">
+            <div class="tf-pg__feed">
+              <div class="tf-label tf-label--feed"></div>
+            </div>
+            <div class="tf-pr">
+              <div class="tf-pr__lid"><span class="tf-pr__slot"></span></div>
+              <div class="tf-pr__face">
+                <div class="tf-pr__lcd"><span>Stampa</span><b>L-0428</b></div>
+                <span class="tf-pr__led"></span>
+                <span class="tf-pr__btn"></span><span class="tf-pr__btn"></span>
+              </div>
+              <div class="tf-pr__grip"></div>
+            </div>
+          </div>
+
+          <!-- Label (template, cloned into the printer feed by JS) -->
+          <div class="tf-label tf-label--free" data-tf-label>
+            <div class="tf-label__head"><b>TAI SUD</b><span>T-Fish</span></div>
+            <div class="tf-label__sp"><b>Triglia di fango</b><i>Mullus barbatus</i></div>
+            <div class="tf-label__body">
+              <dl class="tf-label__dl">
+                <div><dt>Zona FAO</dt><dd>37.2.1</dd></div>
+                <div><dt>Attrezzo</dt><dd>Reti a strascico</dd></div>
+                <div><dt>Data di cattura</dt><dd>01/10/2026</dd></div>
+                <div><dt>Lotto</dt><dd><b>L-0428</b></dd></div>
+              </dl>
+              <div class="tf-label__qr"><svg data-tf-qr></svg><span class="tf-label__laser"></span></div>
+            </div>
+            <div class="tf-label__bar"><svg data-tf-bar preserveAspectRatio="none"></svg><span>L-0428</span></div>
+          </div>
+
+          <!-- Phone / scanner -->
+          <div class="tf-ph">
+            <div class="tf-ph__screen">
+              <div class="tf-ph__cam">
+                <span class="tf-ph__notch"></span>
+                <div class="tf-ph__vf"><svg data-tf-qr data-tone="light"></svg><span class="tf-ph__laser"></span></div>
+              </div>
+              <div class="tf-ph__sheet">
+                <span class="tf-ph__ok">Lotto verificato</span>
+                <p class="tf-ph__title">Origine: lotto L-0428</p>
+                <dl class="tf-ph__dl">
+                  <div><dt>Specie</dt><dd>Triglia di fango</dd></div>
+                  <div><dt>Zona FAO</dt><dd>37.2.1</dd></div>
+                  <div><dt>Attrezzo</dt><dd>Reti a strascico</dd></div>
+                  <div><dt>Cattura</dt><dd>01/10/2026</dd></div>
+                </dl>
+                <span class="tf-ph__cta">Dettaglio lotto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="tf__sample">Dati di esempio</p>
+      </div>
+
+      <div class="tf__ctrl">
+        <div class="tf__steps" role="tablist" aria-label="Passaggi T-Fish">
+          <button class="tf__step" role="tab" id="tf-step-1" data-step="1" aria-selected="true" aria-controls="tf-stage" tabindex="0">
+            <span class="tf__num">01</span><span class="tf__name">Registra</span>
+            <span class="tf__desc">Sul palmare si inseriscono i dati della cattura: specie, zona FAO, attrezzo, data e lotto.</span>
+            <span class="tf__bar"><i></i></span>
+          </button>
+          <button class="tf__step" role="tab" id="tf-step-2" data-step="2" aria-selected="false" aria-controls="tf-stage" tabindex="-1">
+            <span class="tf__num">02</span><span class="tf__name">Genera</span>
+            <span class="tf__desc">T-Fish crea il QR code e il codice a barre del lotto, legati ai dati appena registrati.</span>
+            <span class="tf__bar"><i></i></span>
+          </button>
+          <button class="tf__step" role="tab" id="tf-step-3" data-step="3" aria-selected="false" aria-controls="tf-stage" tabindex="-1">
+            <span class="tf__num">03</span><span class="tf__name">Stampa</span>
+            <span class="tf__desc">La stampante Zebra portatile stampa l'etichetta termica, pronta da applicare.</span>
+            <span class="tf__bar"><i></i></span>
+          </button>
+          <button class="tf__step" role="tab" id="tf-step-4" data-step="4" aria-selected="false" aria-controls="tf-stage" tabindex="-1">
+            <span class="tf__num">04</span><span class="tf__name">Traccia</span>
+            <span class="tf__desc">Lungo la filiera basta una scansione per risalire all'origine del lotto.</span>
+            <span class="tf__bar"><i></i></span>
+          </button>
+        </div>
+        <p class="tf__caption" aria-live="off">Sul palmare si inseriscono i dati della cattura: specie, zona FAO, attrezzo, data e lotto.</p>
+        <button class="tf__toggle" type="button" aria-pressed="false">
+          <svg class="tf__ico-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+          <svg class="tf__ico-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
+          <span class="tf__toggle-txt">Pausa</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
