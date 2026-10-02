@@ -444,7 +444,7 @@
     if (reduce || seen() || typeof window.TaiSudLogo !== 'function') { ov.parentNode.removeChild(ov); return done(); }
     document.body.classList.add('intro-on'); lock(true);
     var svg = ov.querySelector('svg'), flown = false;
-    TaiSudLogo(svg).play();
+    TaiSudLogo(svg).play(); svg.style.visibility = 'visible';
     function fly() {
       if (flown) return; flown = true;
       ov.querySelector('.skip').style.visibility = 'hidden';

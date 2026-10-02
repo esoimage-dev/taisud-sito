@@ -1091,6 +1091,9 @@ table.req tbody tr:hover { background: #FAFBFD; }
 .photo.ph-wait { background-color: var(--chart); background-image: linear-gradient(#C9D5E8 1px, transparent 1px), linear-gradient(90deg, #C9D5E8 1px, transparent 1px); background-size: 32px 32px; min-height: 360px; position: relative; }
 .photo.ph-wait .ph-note { position: absolute; right: 16px; top: 16px; font: 500 10.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
 @media (max-width: 760px) { .photo.ph-wait { min-height: 240px; } }
+
+/* intro: parte bianco, il logo si costruisce da zero */
+#intro svg{visibility:hidden}
 </style></head><body><a class="skip-link" href="#main">Vai al contenuto</a><svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1698,7 +1701,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     if (reduce || seen() || typeof window.TaiSudLogo !== 'function') { ov.parentNode.removeChild(ov); return done(); }
     document.body.classList.add('intro-on'); lock(true);
     var svg = ov.querySelector('svg'), flown = false;
-    TaiSudLogo(svg).play();
+    TaiSudLogo(svg).play(); svg.style.visibility = 'visible';
     function fly() {
       if (flown) return; flown = true;
       ov.querySelector('.skip').style.visibility = 'hidden';
