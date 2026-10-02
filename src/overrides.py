@@ -9,14 +9,7 @@ CHECK = f'''<div class="check" data-check>
 </div>
 <p class="chk-legal">Indicazione orientativa basata sul Reg. (UE) 2023/2842 e sul Reg. di esecuzione (UE) 2025/2196. Per il tuo caso fa fede la normativa vigente.</p>'''
 
-HOWSEC = P['home'][1][P['home'][1].index('<section class="sec dark"><div class="wrap">\n<div class="sec-head">'):]
-HOWSEC = HOWSEC[:HOWSEC.index('</section>', HOWSEC.index('class="how-stage"')) + 10]
-HOWSEC = HOWSEC.replace('<div class="how-steps">', '<div class="how-steps">', 1).replace('<div class="how">', '<div class="how-prog" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="how">', 1)
-HOWSEC = HOWSEC.replace('<h3>La TaiBox calcola la posizione</h3><p>Il GPS rileva posizione, rotta e velocità. Il comandante vede tutto sul display.</p>', '<h3>La TaiBox rileva la posizione</h3><p>Il GPS calcola posizione, rotta e velocità. Il comandante vede lo stato dell\'apparato sul display.</p>')
-HOWSEC = HOWSEC.replace('<p>Alla frequenza prevista dalla legge, anche dove il telefono non prende.</p>', '<p>Alla frequenza prevista dal regolamento, anche dove la rete mobile non arriva.</p>')
-HOWSEC = HOWSEC.replace('<p>La posizione arriva a terra. Da lì l\'apparato si può anche riprogrammare.</p>', '<p>I dati arrivano a terra. Da remoto si controlla e si aggiorna l\'apparato.</p>')
-HOWSEC = HOWSEC.replace('<h3>Anomalie e SOS in automatico</h3><p>Guasti, manomissioni e uscite dai limiti generano un report. L\'SOS parte con un tasto.</p>', '<h3>Anomalie, infrazioni, SOS</h3><p>Guasti, tentativi di manomissione e uscite dai limiti generano un rapporto automatico. L\'SOS parte con un tasto.</p>')
-HOWSEC = HOWSEC.replace('text-anchor="middle">CENTRO A TERRA</text>', 'text-anchor="middle">CENTRO CONTROLLO</text>')
+exec(open(D + 'hw.py').read())
 
 P['home'] = ('Blue box VMS per pescherecci', f'''
 <section class="hero fleet"><canvas id="fleet" aria-hidden="true"></canvas>
@@ -38,7 +31,7 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 </div></div>
 
 <section class="sec"><div class="wrap mt">
-{mosaic('pescatore-reti.jpg', ['tl s s s', 's s s ftr', 's s s s', 'fbl s s br'], 'rv')}
+{mosaic('pescatore-reti.jpg', ['tl s s .', 's s s ftr', '. fbl s br'], 'rv')}
 <div class="stack">{eb('Chi siamo')}<h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
 <p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
 <ul class="blist rv"><li>{TI}TaiBox nell'elenco degli apparati autorizzati Masaf</li><li>{TI}Fornitore autorizzato di traffico satellitare e manutenzione</li><li>{TI}Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
@@ -81,11 +74,11 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 <div class="facts rv"><span>{TI}Apparato autorizzato</span><span>{TI}Traffico satellitare</span><span>{TI}Manutenzione</span><span>{TI}Assistenza tecnica</span></div></div></section>
 
 <section class="sec"><div class="wrap">
-<div class="sec-head split"><div class="stack">{eb('Il percorso')}<h2 class="h-l rv">Dalla richiesta alla barca in regola.</h2></div><p class="lead rv">Cinque passaggi, seguiti dai nostri tecnici. I moduli sono già scaricabili.</p></div>
+<div class="sec-head split"><div class="stack">{eb('Il percorso')}<h2 class="h-l rv">Dalla richiesta alla barca in regola.</h2></div><p class="lead rv">Cinque passaggi, seguiti dai nostri tecnici. I moduli da compilare sono nella pagina Modulistica.</p></div>
 <ol class="journey hs-m" data-dots>
-<li class="rv"><b>Questionario armatore</b><span>Descrivi barca e tipo di pesca.</span><a class="link-arrow" href="https://taisud.com/wp-content/uploads/2025/04/questionario-armatore.pdf" target="_blank" rel="noopener">PDF {A}</a></li>
+<li class="rv"><b>Questionario armatore</b><span>Descrivi barca e tipo di pesca.</span><a class="link-arrow" href="modulistica.html#questionario">Vai al modulo {A}</a></li>
 <li class="rv"><b>Preventivo</b><span>Ricevi l'offerta per apparato e servizio.</span><span class="meta">Via email</span></li>
-<li class="rv"><b>Richiesta di installazione</b><span>Firmi e avvii installazione e registrazione.</span><a class="link-arrow" href="https://taisud.com/wp-content/uploads/2025/04/allegato-prima-installazione.pdf" target="_blank" rel="noopener">PDF {A}</a></li>
+<li class="rv"><b>Richiesta di installazione</b><span>Firmi e avvii installazione e registrazione.</span><a class="link-arrow" href="modulistica.html#installazione">Vai al modulo {A}</a></li>
 <li class="rv"><b>Installazione e collaudo</b><span>Montiamo la TaiBox e verifichiamo la trasmissione.</span><span class="meta">Tecnico a bordo</span></li>
 <li class="rv"><b>Assistenza e manutenzione</b><span>Traffico satellitare, interventi e aggiornamenti nel tempo.</span><span class="meta">06 97840077</span></li>
 </ol></div></section>
@@ -100,7 +93,7 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 {PARTNERS}
 <section class="sec cta-mz"><div class="wrap">
 <div class="mz-copy stack">{eb('Preventivo TaiBox')}<h2 class="h-l rv">Metti in regola la tua barca.</h2><p class="lead rv">Mandaci lunghezza e tipo di pesca. Ti indichiamo l'apparato richiesto e ti inviamo il preventivo.</p><div class="ctas rv"><a class="btn" href="contatti.html#taibox">Richiedi il preventivo {A}</a><a class="btn ghost" href="tel:+390697840077">Chiama 06 97840077</a></div></div>
-{mosaic('hero.jpg', ['. tl s s s', 'tl s s s ftr', 's s s s br', 'fbl s s br .'], 'mz rv')}
+{mosaic('hero.jpg', ['. tl s s .', 'tl s s s tr', 'fbl s s br .'], 'mz rv')}
 </div></section>
 ''')
 
@@ -127,7 +120,7 @@ P['chi-siamo'] = ('Chi siamo', cs.replace('Tai Sud progetta, produce e assiste',
 
 # ---- prodotti: split hero
 P['prodotti'] = ('Prodotti e servizi', f'''
-{page_hero(crumbs(('Prodotti e servizi',)), 'Prodotti e servizi', ['Quello che serve', 'a bordo e in banchina.'], 'Due prodotti e i servizi che li tengono operativi, da un unico referente.', mosaic('faro.jpg', ['s s s tr', 'ftl s s s', 's s s br']))}
+{page_hero(crumbs(('Prodotti e servizi',)), 'Prodotti e servizi', ['Quello che serve', 'a bordo e in banchina.'], 'Due prodotti e i servizi che li tengono operativi, da un unico referente.', mosaic('faro.jpg', ['. s s tr', 'ftl s s s', 's s br .']))}
 <div class="split2">
 <a href="taibox.html">{photo('hero.jpg', 'Peschereccio in navigazione')}<small>Per armatori e comandanti</small><b>TaiBox</b><span>La blue box che trasmette posizione e rotta al centro di controllo a terra.</span><em>Scopri la TaiBox {A}</em></a>
 <a href="t-fish.html">{photo('mercato.jpg', 'Pescato su ghiaccio')}<small>Per pescherecci, mercati e grossisti</small><b>T-Fish</b><span>Etichette con codice a barre e QR code, stampate sul posto.</span><em>Scopri T-Fish {A}</em></a>
@@ -137,7 +130,7 @@ P['prodotti'] = ('Prodotti e servizi', f'''
 <div class="stack">{eb('Blue box · ACS')}<h2 class="h-l rv">TaiBox</h2><p class="lead rv">Apparato di controllo satellitare per pescherecci. Invia posizione e rotta al centro di controllo a terra, segnala anomalie e tentativi di manomissione, trasmette l'SOS.</p><div class="tags rv"><span>Autorizzata Masaf</span><span>IP67</span><span>Display 7"</span></div><div class="ctas rv"><a class="btn" href="taibox.html">Scopri la TaiBox {A}</a></div></div>
 </div></section>
 <section class="sec mist"><div class="wrap mt rev">
-{mosaic('mercato.jpg', ['tl s s s', 's s s s', 's s s fbr'], 'rv')}
+{mosaic('mercato.jpg', ['tl s s .', 's s s s', '. s s fbr'], 'rv')}
 <div class="stack">{eb('Tracciabilità', 'r-bl')}<h2 class="h-l rv">T-Fish</h2><p class="lead rv">Palmare con app e stampante portatile. Registri il lotto e stampi sul posto l'etichetta con codice a barre e QR code.</p><div class="tags rv"><span>App</span><span>QR code</span><span>Zebra</span><span>IP54</span></div><div class="ctas rv"><a class="btn" href="t-fish.html">Scopri T-Fish {A}</a></div></div>
 </div></section>
 <section class="sec dark" id="servizi"><div class="wrap">
@@ -148,7 +141,7 @@ P['prodotti'] = ('Prodotti e servizi', f'''
 <div class="feat rv"><svg><use href="#i-wrench"/></svg><b>Manutenzione</b><span>Interventi a bordo e aggiornamenti da remoto.</span></div>
 <div class="feat rv"><svg><use href="#i-code"/></svg><b>Sistemi su misura</b><span>Progetti informativi e integrazioni per aziende.</span></div>
 </div></div></section>
-<section class="sec tight"><div class="wrap"><div class="check" style="grid-template-columns:1fr auto;border-radius:8px 8px 8px 56px"><div class="chk-in"><span class="eyebrow">{TI}Cooperative e flotte</span><h3 class="h-m">Più barche, un solo referente.</h3><p class="muted">Per cooperative e armatori con più unità prepariamo un'offerta unica per apparati, traffico satellitare e manutenzione.</p></div><div class="chk-in" style="align-content:center"><a class="btn" href="contatti.html#taibox">Offerta per la flotta {A}</a></div></div></div></section>
+<section class="sec tight"><div class="wrap"><div class="check coop"><div class="chk-in"><span class="eyebrow">{TI}Cooperative e flotte</span><h3 class="h-m">Più barche, un solo referente.</h3><p class="muted">Per cooperative e armatori con più unità prepariamo un'offerta unica per apparati, traffico satellitare e manutenzione.</p></div><div class="chk-in coop-cta"><a class="btn" href="contatti.html#taibox">Offerta per la flotta {A}</a></div></div></div></section>
 ''' + cta('Chiedi un preventivo su misura.', 'Indica prodotto e numero di barche. Ti inviamo una proposta per apparati e servizi.', ('Richiedi il preventivo', 'contatti.html#taibox'), ('Chiama 06 97840077', 'tel:+390697840077')))
 
 MODEINFO = MODEINFO.replace('Trasmette la posizione alla frequenza prevista dalla legge. Avvisi e anomalie arrivano al centro di controllo.', 'Trasmette la posizione alla frequenza prevista dal regolamento. Anomalie e infrazioni arrivano al centro di controllo a terra.').replace('<div class="mode-info rv">', '<div class="mode-info rv" aria-live="polite">')
@@ -238,10 +231,10 @@ P['assistenza'] = ('Assistenza tecnica TaiBox', page_hero(crumbs(('Assistenza',)
 def doc2(idn, step, title, what, who, when, href, meta, send=True):
     s = '<a class="btn ghost sm" href="contatti.html#moduli">Invia il modulo compilato</a>' if send else ''
     return f'''<article class="doc rv" id="{idn}"><span class="beam-border"></span><div class="top"><div class="ico">PDF</div><div><span class="when">{step}</span><h3 class="h-s" style="margin-top:6px">{title}</h3></div></div>
-<dl><div><dt>A cosa serve</dt><dd>{what}</dd></div><div><dt>Chi lo compila</dt><dd>{who}</dd></div><div><dt>Quando</dt><dd>{when}</dd></div></dl>
+<dl><div><dt>A cosa serve</dt><dd>{what}</dd></div>{f'<div><dt>Chi lo compila</dt><dd>{who}</dd></div>' if who else ''}{f'<div><dt>Quando</dt><dd>{when}</dd></div>' if when else ''}</dl>
 <div class="meta">{''.join(f'<span>{x}</span>' for x in meta)}</div>
 <div class="acts"><a class="btn sm" href="{href}" target="_blank" rel="noopener"><svg><use href="#i-download"/></svg>Scarica PDF<span class="sr"> (si apre in una nuova scheda)</span></a>{s}</div></article>'''
-P['modulistica'] = ('Modulistica TaiBox', page_hero(crumbs(('Modulistica',)), 'Contrattualistica e modulistica', ['I moduli', 'per iniziare.'], 'Scarica i PDF, compilali e inviali dal modulo online o a info@taisud.com.', mosaic('reti.jpg', ['tl s s', 's s ftr', 'fbl s br'])).replace('class="page-hero"', 'class="page-hero mod"') + f'''
+P['modulistica'] = ('Modulistica TaiBox', page_hero(crumbs(('Modulistica',)), 'Contrattualistica e modulistica', ['I moduli', 'per iniziare.'], 'Scarica i PDF, compilali e inviali dal modulo online o a info@taisud.com.', mosaic('reti.jpg', ['tl s .', 's s ftr', 'fbl s br'])).replace('class="page-hero"', 'class="page-hero mod"') + f'''
 <section class="sec"><div class="wrap">
 <div class="sec-head">{eb('Per iniziare con la TaiBox')}<h2 class="h-l rv">Due moduli, in quest'ordine.</h2></div>
 <div class="docs" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))">
@@ -254,8 +247,8 @@ P['modulistica'] = ('Modulistica TaiBox', page_hero(crumbs(('Modulistica',)), 'C
 <li><b>Questionario</b><span>Prima del preventivo.</span><a class="link-arrow" href="#questionario">Vai al modulo {A}</a></li><li><b>Preventivo</b><span>Ricevi l'offerta.</span><span class="meta">Via email</span></li><li><b>Richiesta di installazione</b><span>Dopo l'accettazione.</span><a class="link-arrow" href="#installazione">Vai al modulo {A}</a></li><li><b>Installazione</b><span>A bordo, con i nostri tecnici.</span><span class="meta">Tecnico a bordo</span></li><li><b>Assistenza</b><span>Manutenzione e traffico satellitare.</span><span class="meta">06 97840077</span></li>
 </ol></div></section>
 <section class="sec"><div class="wrap">
-<div class="sec-head">{eb('Documenti aziendali')}<h2 class="h-l rv">Per gare e uffici acquisti.</h2></div>
-<div class="docs" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))">{doc2('iso', 'Qualità', 'Certificato ISO 9001:2015', 'Per gare, albi fornitori e uffici acquisti.', 'Consultazione libera', 'Quando serve', 'https://taisud.com/wp-content/uploads/2025/03/Certificato_iso9001_Tai-Sud.pdf', ['PDF', 'IMQ'], False)}</div>
+<div class="iso-row"><div class="stack">{eb('Documenti aziendali')}<h2 class="h-l rv">Per gare e uffici acquisti.</h2><p class="lead rv">Il certificato del sistema qualità, pronto da allegare a gare, albi fornitori e qualifiche.</p></div>
+<div class="docs one">{doc2('iso', 'Qualità', 'Certificato ISO 9001:2015', 'UNI EN ISO 9001:2015, rilasciato da IMQ con accreditamento ACCREDIA.', '', '', 'https://taisud.com/wp-content/uploads/2025/03/Certificato_iso9001_Tai-Sud.pdf', ['PDF', 'IMQ'], False)}</div></div>
 </div></section>
 ''' + cta('Ti aiutiamo a compilarli.', 'Chiamaci e li compiliamo insieme al telefono.', ('Chiama 06 97840077', 'tel:+390697840077'), ('Invia i moduli', 'contatti.html#moduli')))
 

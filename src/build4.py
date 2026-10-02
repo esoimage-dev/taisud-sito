@@ -216,7 +216,7 @@ P['home'] = ('Blue box VMS per la pesca professionale', f'''
 ''' + cta('La tua barca è in regola?', 'Mandaci lunghezza e tipo di pesca. Ti diciamo cosa serve e ti prepariamo un preventivo.'))
 
 # ================= CHI SIAMO =================
-P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · dal 1988', ['Dal 1988,', 'tecnologia che', 'lavora in mare.'], 'Tai Sud progetta, produce e assiste apparati di controllo satellitare per la pesca professionale.', mosaic('porto.jpg', ['tl s s ftr', 's s s s', 'fbl s s br'])) + f'''
+P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · dal 1988', ['Dal 1988,', 'tecnologia che', 'lavora in mare.'], 'Tai Sud progetta, produce e assiste apparati di controllo satellitare per la pesca professionale.', mosaic('porto.jpg', ['. tl s ftr', 'tl s s s', 'fbl s s br'])) + f'''
 <section class="sec"><div class="wrap mt">
 <div class="stack">{eb('La storia')}<h2 class="h-l rv">Fondata e fatta crescere da Alberto Tirico.</h2>
 <p class="lead rv">Alberto Tirico fonda Tai Sud a Roma nel 1988 e la guida per oltre trent'anni.</p>
@@ -260,13 +260,13 @@ P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · d
 ''' + cta('Parliamo della tua flotta.', 'Una barca o una cooperativa: troviamo insieme la soluzione giusta.', ('Contattaci', 'contatti.html'), ('06 97840077', 'tel:+390697840077'), 'pescatore-reti.jpg'))
 
 # ================= PRODOTTI =================
-P['prodotti'] = ('Prodotti e servizi', page_hero(crumbs(('Prodotti e servizi',)), 'Prodotti e servizi', ['Tutto quello che', 'serve a bordo.'], 'Due prodotti e i servizi per farli funzionare, da un solo fornitore.', mosaic('faro.jpg', ['s s s tr', 'ftl s s s', 's s s br'])) + f'''
+P['prodotti'] = ('Prodotti e servizi', page_hero(crumbs(('Prodotti e servizi',)), 'Prodotti e servizi', ['Tutto quello che', 'serve a bordo.'], 'Due prodotti e i servizi per farli funzionare, da un solo fornitore.', mosaic('faro.jpg', ['. s s tr', 'ftl s s s', 's s br .'])) + f'''
 <section class="sec"><div class="wrap mt">
 <div style="background:#fff;border:1px solid var(--line);overflow:hidden" class="cut rv"><img src="img/taibox-kit.jpg" alt="Kit TaiBox" loading="lazy"></div>
 <div class="stack">{eb('Blue box · ACS')}<h2 class="h-l rv">TaiBox</h2><p class="lead rv">L'apparato di controllo satellitare per pescherecci. Trasmette posizione e rotta a terra, segnala anomalie e manomissioni, invia l'SOS.</p><div class="tags rv"><span>Autorizzata Masaf</span><span>IP67</span><span>Display 7"</span></div><div class="ctas rv"><a class="btn" href="taibox.html">Scopri la TaiBox {A}</a></div></div>
 </div></section>
 <section class="sec mist"><div class="wrap mt rev">
-{mosaic('mercato.jpg', ['tl s s s', 's s s s', 's s s fbr'], 'rv')}
+{mosaic('mercato.jpg', ['tl s s .', 's s s s', '. s s fbr'], 'rv')}
 <div class="stack">{eb('Tracciabilità', 'r-bl')}<h2 class="h-l rv">T-Fish</h2><p class="lead rv">Palmare con app e stampante portatile. Registri il lotto e stampi sul posto l'etichetta con codice a barre e QR code.</p><div class="tags rv"><span>App</span><span>QR code</span><span>Zebra</span><span>IP54</span></div><div class="ctas rv"><a class="btn" href="t-fish.html">Scopri T-Fish {A}</a></div></div>
 </div></section>
 <section class="sec dark" id="servizi"><div class="wrap">
@@ -325,7 +325,7 @@ P['taibox'] = ('TaiBox, blue box VMS', page_hero(crumbs(('Prodotti', 'prodotti.h
 # ================= T-FISH =================
 P['t-fish'] = ('T-Fish, tracciabilità del pescato', page_hero(crumbs(('Prodotti', 'prodotti.html'), ('T-Fish',)), 'Etichettatura e tracciabilità', ['T-Fish. Ogni lotto,', 'la sua etichetta.'], 'Palmare con app e stampante portatile. Registri il lotto e stampi sul posto l\'etichetta con codice a barre e QR code.', '<img src="img/tfish-devices.jpg" alt="Palmare e stampante Zebra">', f'<div class="tags hin"><span>App</span><span>QR code</span><span>Zebra</span><span>IP54</span></div><div class="ctas hin"><a class="btn" href="contatti.html#tfish">Richiedi informazioni {A}</a></div>').replace('<div class="side">', '<div class="side product">') + f'''
 <section class="sec"><div class="wrap mt">
-{mosaic('mercato.jpg', ['tl s s s', 's s s s', 'fbl s s br'], 'rv')}
+{mosaic('mercato.jpg', ['tl s s .', 's s s tr', 'fbl s br .'], 'rv')}
 <div class="stack">{eb('Perché adesso')}<h2 class="h-l rv">La tracciabilità diventa digitale.</h2><p class="lead rv">Con il Regolamento (UE) 2023/2842 i dati del pescato vanno raccolti in digitale, dalla cattura alla vendita. Da gennaio 2029 anche per conserve, crostacei e molluschi.</p><p class="muted rv">Tracciare ogni passaggio vuol dire più sicurezza e trasparenza, per chi vende e per chi compra.</p></div>
 </div></section>
 <section class="sec dark"><div class="wrap">
@@ -415,7 +415,7 @@ P['modulistica'] = ('Contrattualistica e modulistica', page_hero(crumbs(('Moduli
 FORM = f'''<form class="form rv" id="cform" novalidate><div id="form-body" style="display:grid;gap:30px">
 <fieldset><legend><span class="n">01</span>Motivo</legend><div class="pills">
 <label><input type="radio" name="motivo" value="taibox" checked><span>Preventivo TaiBox<small>Blue box VMS</small></span></label>
-<label><input type="radio" name="motivo" value="tfish"><span>Preventivo T-Fish<small>Etichette e tracciabilità</small></span></label>
+<label><input type="radio" name="motivo" value="tfish"><span>Preventivo <span style="white-space:nowrap">T-Fish</span><small>Etichette e tracciabilità</small></span></label>
 <label><input type="radio" name="motivo" value="assistenza"><span>Assistenza<small>Problema all'apparato</small></span></label>
 <label><input type="radio" name="motivo" value="moduli"><span>Invio moduli<small>PDF compilati</small></span></label>
 <label><input type="radio" name="motivo" value="candidatura"><span>Candidatura<small>Lavora con noi</small></span></label>
@@ -455,7 +455,7 @@ P['contatti'] = ('Contatti', page_hero(crumbs(('Contatti',)), 'Contatti', ['Parl
 </div></section>''')
 
 # ================= LAVORA =================
-P['lavora-con-noi'] = ('Lavora con noi', page_hero(crumbs(('Chi siamo', 'chi-siamo.html'), ('Lavora con noi',)), 'Lavora con noi', ['Entra in', 'squadra.'], 'Un\'azienda funziona quando è fatta di persone preparate, con obiettivi in comune.', mosaic('pescatore-reti.jpg', ['tl s s', 's s s', 'fbl s br'])) + f'''
+P['lavora-con-noi'] = ('Lavora con noi', page_hero(crumbs(('Chi siamo', 'chi-siamo.html'), ('Lavora con noi',)), 'Lavora con noi', ['Entra in', 'squadra.'], 'Un\'azienda funziona quando è fatta di persone preparate, con obiettivi in comune.', mosaic('pescatore-reti.jpg', ['tl s .', 's s tr', 'fbl s s'])) + f'''
 <section class="sec"><div class="wrap two">
 <div class="stack">{eb('Chi cerchiamo')}<h2 class="h-l rv">Persone competenti, che vogliono crescere.</h2></div>
 <div class="stack"><p class="lead rv">Costruiamo la squadra con cura. Se vuoi lavorare con la tecnologia a bordo, raccontaci cosa sai fare.</p>

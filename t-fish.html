@@ -968,6 +968,105 @@ table.req tbody tr:hover { background: #FAFBFD; }
 .cta-mz .wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
 .cta-mz .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 @media (max-width: 860px) { .cta-mz .wrap { grid-template-columns: 1fr; } .cta-mz .mosaic { order: -1; } .cta-mz .ctas .btn { flex: 1 1 100%; justify-content: center; } }
+
+/* ===== v6: Come funziona (hw) ===== */
+.hw { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(28px, 5vw, 80px); align-items: center; margin-top: clamp(32px, 4vw, 56px); }
+.hw-stage { position: relative; border: 1px solid var(--line-d); border-radius: 8px 8px 8px 72px; background: radial-gradient(120% 90% at 50% 40%, rgba(48,160,218,.10), transparent 60%), rgba(255,255,255,.02); aspect-ratio: 1 / .94; padding: clamp(14px, 2.4vw, 32px); overflow: hidden; }
+.hw-stage > svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.hw-cap { position: absolute; left: clamp(16px, 2vw, 26px); top: clamp(14px, 2vw, 22px); display: flex; gap: 12px; align-items: center; font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(238,243,250,.55); z-index: 1; }
+.hw-cap-k { color: var(--t-l); }
+.hw-stage .node rect, .hw-stage .node circle.base { fill: rgba(238,243,250,.03); stroke: rgba(238,243,250,.2); stroke-width: 1; transition: fill .5s, stroke .5s; }
+.hw-stage .node .ic { color: rgba(238,243,250,.42); transition: color .5s; }
+.hw-stage .node text { fill: rgba(238,243,250,.45); font: 500 11.5px var(--mono); letter-spacing: .1em; transition: fill .5s; }
+.hw-stage .node.on rect, .hw-stage .node.on circle.base { fill: rgba(48,160,218,.14); stroke: rgba(138,210,242,.7); }
+.hw-stage .node.on .ic, .hw-stage .node.on text { color: #fff; fill: #fff; }
+.hw-stage .node.cur rect, .hw-stage .node.cur circle.base { fill: rgba(48,160,218,.28); stroke: var(--t-l); stroke-width: 1.5; }
+.hw-stage .link { fill: none; stroke: rgba(238,243,250,.16); stroke-dasharray: 3 5; }
+.hw-stage .flow { fill: none; stroke: var(--t-l); stroke-width: 1.8; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .9s var(--e); }
+.hw-stage .flow.on { stroke-dashoffset: 0; }
+.hw-stage .pulse { fill: #fff; opacity: 0; transition: opacity .4s; }
+.hw-stage .pulse.on { opacity: 1; }
+.hw-stage .rings circle { fill: none; stroke: rgba(138,210,242,.16); }
+.hw-stage .sweep { transform-origin: 260px 260px; animation: sweep 7s linear infinite; }
+
+.hw-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-d); }
+.hw-it { position: relative; border-bottom: 1px solid var(--line-d); }
+.hw-btn { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: grid; grid-template-columns: 44px 1fr 22px; grid-template-areas: "n k pm" "n t pm"; column-gap: 14px; row-gap: 6px; align-items: center; padding: 22px 0; color: rgba(238,243,250,.55); transition: color .3s; }
+.hw-btn:focus-visible { outline: 2px solid var(--t-l); outline-offset: 4px; border-radius: 4px; }
+.hw-n { grid-area: n; align-self: start; font: 500 12px/1 var(--mono); letter-spacing: .1em; color: rgba(238,243,250,.4); padding-top: 3px; transition: color .3s; }
+.hw-k { grid-area: k; font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(238,243,250,.4); transition: color .3s; }
+.hw-t { grid-area: t; font-weight: 600; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.25; letter-spacing: -.01em; }
+.hw-pm { grid-area: pm; width: 14px; height: 14px; position: relative; justify-self: end; }
+.hw-pm::before, .hw-pm::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -.75px; background: currentColor; transition: transform .35s var(--e); }
+.hw-pm::after { transform: rotate(90deg); }
+.hw-it.on .hw-pm::after { transform: rotate(0); }
+.hw-btn:hover { color: rgba(238,243,250,.85); }
+.hw-it.on .hw-btn { color: #fff; }
+.hw-it.on .hw-n, .hw-it.on .hw-k { color: var(--t-l); }
+.hw-d { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--e); }
+.hw-d > div { overflow: hidden; }
+.hw-d p { margin: 0; padding: 0 36px 24px 58px; color: rgba(238,243,250,.75); font-size: 16.5px; line-height: 1.6; max-width: 46ch; }
+.hw-it.on .hw-d { grid-template-rows: 1fr; }
+.hw-bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; overflow: hidden; }
+.hw-bar i { display: block; height: 100%; width: 100%; background: var(--t-l); transform: scaleX(0); transform-origin: left; }
+.hw-it.on .hw-bar i { transform: scaleX(1); }
+.hw.play .hw-it.on .hw-bar i { transform: scaleX(0); animation: hwbar var(--hw-dur, 5.5s) linear forwards; }
+.hw.paused .hw-it.on .hw-bar i { animation-play-state: paused; }
+@keyframes hwbar { to { transform: scaleX(1); } }
+@media (max-width: 860px) {
+  .hw { grid-template-columns: 1fr; gap: 20px; margin-top: 28px; }
+  .hw-stage { aspect-ratio: 1 / .9; border-radius: 8px 8px 8px 48px; padding: 30px 8px 8px; }
+  .hw-btn { grid-template-columns: 36px 1fr 20px; padding: 18px 0; }
+  .hw-t { font-size: 18.5px; }
+  .hw-d p { padding: 0 8px 20px 50px; font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .hw-stage .sweep { animation: none; } .hw-d { transition: none; } }
+
+/* ===== v6: no swipe on mobile, vertical timelines ===== */
+.sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+@media (max-width: 760px) {
+  .hs-m { display: grid !important; grid-auto-flow: row !important; grid-auto-columns: auto !important; grid-template-columns: 1fr !important; overflow: visible !important; margin-inline: 0 !important; padding-inline: 0 !important; scroll-snap-type: none !important; }
+  .hs-dots, .hs-m + .hs-dots { display: none !important; }
+  /* journey: vertical rail */
+  .journey.hs-m { border-top: 0; gap: 0 !important; position: relative; padding-left: 30px !important; }
+  .journey.hs-m::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+  .journey.hs-m li { padding: 0 0 28px; border: 0; border-radius: 0; background: none; gap: 6px; }
+  .journey.hs-m li:last-child { padding-bottom: 0; }
+  .journey.hs-m li::after { top: 2px; left: -30px; right: auto; }
+  .journey.hs-m b { font-size: 18px; }
+  /* deadlines: vertical rail on dark */
+  .tl.hs-m { gap: 0 !important; position: relative; padding-left: 30px !important; }
+  .tl.hs-m::before { display: block !important; left: 7px; right: auto; top: 10px; bottom: 10px; width: 1px; height: auto; }
+  .tl.hs-m .dl { border: 0; border-radius: 0; background: none; padding: 0 0 30px; }
+  .tl.hs-m .dl:last-child { padding-bottom: 0; }
+  .tl.hs-m .dl::before { left: -30px !important; right: auto !important; top: 2px !important; }
+  .people.hs-m { gap: 16px !important; }
+}
+@media (max-width: 860px) { .hw-stage .node text { font-size: 14px; } .hw-cap { top: 12px; left: 16px; } }
+.check.coop { grid-template-columns: minmax(0, 1fr) auto; border-radius: 8px 8px 8px 56px; }
+.check.coop .coop-cta { align-content: center; }
+@media (max-width: 760px) { .check.coop { grid-template-columns: 1fr; } .check.coop .coop-cta { padding-top: 0; } .check.coop .coop-cta .btn { width: 100%; justify-content: center; } }
+@media (max-width: 760px) {
+  .people.hs-m { gap: 0 !important; border-top: 1px solid var(--line); }
+  .people .person { grid-template-columns: 92px 1fr; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .people .portrait { aspect-ratio: 1; border-radius: 6px 6px 6px 34px; }
+  .people .portrait .ini { font-size: 26px; }
+  .people .portrait .ph-note { display: none; }
+  .people .person b { font-size: 19px; }
+}
+@media (max-width: 860px) {
+  .screen { aspect-ratio: auto; grid-template-rows: auto auto auto; }
+  .screen .mid { min-height: 0; grid-template-columns: 1fr 1fr; }
+  .screen .map { min-height: 150px; }
+  .screen .stat { font-size: 10px; gap: 6px; }
+}
+.chk-out .chk-step { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--t-l); }
+.chk-out .chk-ph { color: rgba(255,255,255,.92); }
+.iso-row { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: clamp(28px, 6vw, 96px); align-items: center; }
+.iso-row .docs.one { grid-template-columns: 1fr !important; }
+@media (max-width: 860px) { .iso-row { grid-template-columns: 1fr; } }
+.fields { align-items: start; }
+.f { align-content: start; }
 /* TAI SUD T-Fish explainer: dal palmare all'etichetta. All rules scoped under .tf */
 .tf {
   --c-paper: var(--paper, #FFFFFF);
@@ -1442,7 +1541,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <div class="mm-quick"><a href="tel:+390697840077"><span>Assistenza tecnica</span><b>Chiama<br>06 97840077</b></a><a href="contatti.html#taibox"><span>Preventivo TaiBox</span><b>Compila<br>la richiesta</b></a></div>
 <div class="mm-foot"><span>TAI SUD s.r.l.<br>Viale G. Bonelli 341, Roma</span><div class="tile-strip"><i></i><i style="--o:.7"></i><i style="--o:.45"></i><i style="--o:.25"></i></div></div></div><main id="main" tabindex="-1"><section class="page-hero"><canvas class="chart" data-boats="3" aria-hidden="true"></canvas><div class="wrap"><div class="stack"><nav class="crumbs hin" aria-label="Percorso"><a href="home.html">Home</a><i></i><a href="prodotti.html">Prodotti</a><i></i><span>T-Fish</span></nav><span class="eyebrow hin rv"><i class="tile-ico "></i>Etichettatura e tracciabilità</span><h1 class="h-xl"><span class="ln"><span>T-Fish. Ogni lotto,</span></span><span class="ln"><span>la sua etichetta.</span></span></h1><p class="lead hin">Palmare con app e stampante portatile. Registri il lotto e stampi sul posto l'etichetta con codice a barre e QR code.</p><div class="tags hin"><span>App</span><span>QR code</span><span>Zebra</span><span>IP54</span></div><div class="ctas hin"><a class="btn" href="contatti.html#tfish">Richiedi il preventivo T-Fish <svg><use href="#i-arrow"/></svg></a></div></div><div class="side product"><img src="img/tfish-devices.jpg" alt="Palmare e stampante Zebra"></div></div></section>
 <section class="sec"><div class="wrap mt">
-<div class="mosaic rv" style="--cols:4;--rows:3" aria-hidden="true"><i class="tl" style="background-image:url(img/mercato.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:66.7% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:100.0% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:0.0% 50.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 50.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:66.7% 50.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:100.0% 50.0%"></i><i class="f bl"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 100.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/mercato.jpg);background-position:100.0% 100.0%"></i></div>
+<div class="mosaic rv" style="--cols:4;--rows:3" aria-hidden="true"><i class="tl" style="background-image:url(img/mercato.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:66.7% 0.0%"></i><i class="e"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:0.0% 50.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 50.0%"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:66.7% 50.0%"></i><i class="tr" style="background-image:url(img/mercato.jpg);background-position:100.0% 50.0%"></i><i class="f bl"></i><i class="" style="background-image:url(img/mercato.jpg);background-position:33.3% 100.0%"></i><i class="br" style="background-image:url(img/mercato.jpg);background-position:66.7% 100.0%"></i><i class="e"></i></div>
 <div class="stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Perché adesso</span><h2 class="h-l rv">La tracciabilità del pescato diventa digitale.</h2><p class="lead rv">Con il Regolamento (UE) 2023/2842 i dati del pescato vanno raccolti in digitale, dalla cattura alla vendita. Da gennaio 2029 anche per conserve, crostacei e molluschi.</p><p class="muted rv">Tracciare ogni passaggio vuol dire più sicurezza e trasparenza, per chi vende e per chi compra.</p></div>
 </div></section>
 <section class="sec dark"><div class="wrap">
@@ -2134,21 +2233,41 @@ table.req tbody tr:hover { background: #FAFBFD; }
   })();
 
   /* how it works */
-  var steps = $$('.how-step');
-  function setStep(n) {
-    steps.forEach(function (s) { s.classList.toggle('on', +s.getAttribute('data-s') === n); });
-    $$('.how-stage .node').forEach(function (g) { g.classList.toggle('on', +g.getAttribute('data-n') <= n); });
-    $$('.how-stage .flow').forEach(function (f) { f.classList.toggle('on', +f.getAttribute('data-f') <= n); });
-    var p = $('.how-stage .pulse'); if (p) p.classList.toggle('on', n >= 2);
-    $$('.how-prog i').forEach(function (b, i) { b.classList.toggle('on', i < n); });
-  }
-  if (steps.length) {
-    setStep(1);
-    var mobile = mq('(max-width: 860px)');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(+e.target.getAttribute('data-s')); }); },
-      mobile ? { rootMargin: '-58% 0px -32% 0px' } : { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(function (s) { io.observe(s); });
-  }
+  (function () {
+    var hw = $('[data-hw]'); if (!hw) return;
+    var items = $$('.hw-it', hw), cap = $('.hw-cap-n', hw), capk = $('.hw-cap-k', hw);
+    var reduce = mq('(prefers-reduced-motion: reduce)');
+    var cur = 1, timer = 0, inView = false, hover = false, DUR = 5500;
+    function set(n) {
+      cur = n;
+      items.forEach(function (it) { var on = +it.getAttribute('data-s') === n; it.classList.toggle('on', on); $('.hw-btn', it).setAttribute('aria-expanded', on ? 'true' : 'false'); });
+      $$('.node', hw).forEach(function (g) { var k = +g.getAttribute('data-n'); g.classList.toggle('on', k <= n); g.classList.toggle('cur', k === n); });
+      $$('.flow', hw).forEach(function (f) { f.classList.toggle('on', +f.getAttribute('data-f') <= n); });
+      var p = $('.pulse', hw); if (p) p.classList.toggle('on', n >= 2);
+      if (cap) cap.textContent = '0' + n + ' / 04';
+      if (capk) capk.textContent = $('.hw-k', items[n - 1]).textContent;
+      restart();
+    }
+    function restart() {
+      clearTimeout(timer);
+      var bar = $('.hw-it.on .hw-bar i', hw);
+      if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+      if (reduce || !inView || hover) { hw.classList.toggle('play', !reduce && inView); return; }
+      hw.classList.add('play');
+      timer = setTimeout(function () { set(cur % items.length + 1); }, DUR);
+    }
+    items.forEach(function (it) {
+      $('.hw-btn', it).addEventListener('click', function () { set(+it.getAttribute('data-s')); });
+    });
+    var list = $('.hw-list', hw);
+    if (mq('(hover: hover)')) {
+      list.addEventListener('mouseenter', function () { hover = true; hw.classList.add('paused'); clearTimeout(timer); });
+      list.addEventListener('mouseleave', function () { hover = false; hw.classList.remove('paused'); restart(); });
+    }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { var was = inView; inView = e.isIntersecting; if (inView && !was) set(cur); if (!inView) { clearTimeout(timer); hw.classList.remove('play'); } }); }, { threshold: .35 }).observe(hw);
+    hw.style.setProperty('--hw-dur', DUR + 'ms');
+    set(1);
+  })();
 
   /* display mock: modes */
   var MODES = {
@@ -2285,7 +2404,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
       var k = st.lft === 'lt' ? 'small' : (st.lft === 'ge' && st.zona) ? (st.zona === 'costa' ? 'coast' : 'sat') : null;
       q2.classList.toggle('dim', st.lft !== 'ge');
       $$('button', q2).forEach(function (b) { b.disabled = st.lft !== 'ge'; });
-      if (!k) { out.innerHTML = '<p class="chk-wait">Rispondi alle domande per vedere il risultato.</p>'; return; }
+      if (!k) { out.innerHTML = '<span class="chk-step">' + (st.lft ? '1' : '0') + ' di 2 risposte</span><h3 class="chk-ph">Il risultato apparirà qui.</h3><p>Ti diciamo se il VMS è obbligatorio per la tua barca e quale apparato serve.</p>'; return; }
       var r = R[k], l = st.lft === 'ge' ? 12 : '';
       out.innerHTML = '<span class="chip ' + (k === 'small' ? 'l-future' : 'l-next') + '"><i></i>' + r.tag + '</span><h3>' + r.t + '</h3><p>' + r.p + '</p>' + (k !== 'small' ? '<p class="chk-note"><b>10 luglio 2027</b> la posizione va trasmessa ogni 30 minuti.</p>' : '') + '<div class="ctas">' + r.c.map(function (c, i) { return '<a class="btn ' + (i ? 'ghost' : '') + ' sm" href="' + c[1].replace('{l}', l) + '">' + c[0] + '</a>'; }).join('') + '</div>';
       if (G && !reduce) gsap.from(out.children, { opacity: 0, y: 12, duration: .5, stagger: .05, ease: 'power2.out' });

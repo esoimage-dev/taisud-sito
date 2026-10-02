@@ -208,21 +208,41 @@
   })();
 
   /* how it works */
-  var steps = $$('.how-step');
-  function setStep(n) {
-    steps.forEach(function (s) { s.classList.toggle('on', +s.getAttribute('data-s') === n); });
-    $$('.how-stage .node').forEach(function (g) { g.classList.toggle('on', +g.getAttribute('data-n') <= n); });
-    $$('.how-stage .flow').forEach(function (f) { f.classList.toggle('on', +f.getAttribute('data-f') <= n); });
-    var p = $('.how-stage .pulse'); if (p) p.classList.toggle('on', n >= 2);
-    $$('.how-prog i').forEach(function (b, i) { b.classList.toggle('on', i < n); });
-  }
-  if (steps.length) {
-    setStep(1);
-    var mobile = mq('(max-width: 860px)');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(+e.target.getAttribute('data-s')); }); },
-      mobile ? { rootMargin: '-58% 0px -32% 0px' } : { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(function (s) { io.observe(s); });
-  }
+  (function () {
+    var hw = $('[data-hw]'); if (!hw) return;
+    var items = $$('.hw-it', hw), cap = $('.hw-cap-n', hw), capk = $('.hw-cap-k', hw);
+    var reduce = mq('(prefers-reduced-motion: reduce)');
+    var cur = 1, timer = 0, inView = false, hover = false, DUR = 5500;
+    function set(n) {
+      cur = n;
+      items.forEach(function (it) { var on = +it.getAttribute('data-s') === n; it.classList.toggle('on', on); $('.hw-btn', it).setAttribute('aria-expanded', on ? 'true' : 'false'); });
+      $$('.node', hw).forEach(function (g) { var k = +g.getAttribute('data-n'); g.classList.toggle('on', k <= n); g.classList.toggle('cur', k === n); });
+      $$('.flow', hw).forEach(function (f) { f.classList.toggle('on', +f.getAttribute('data-f') <= n); });
+      var p = $('.pulse', hw); if (p) p.classList.toggle('on', n >= 2);
+      if (cap) cap.textContent = '0' + n + ' / 04';
+      if (capk) capk.textContent = $('.hw-k', items[n - 1]).textContent;
+      restart();
+    }
+    function restart() {
+      clearTimeout(timer);
+      var bar = $('.hw-it.on .hw-bar i', hw);
+      if (bar) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
+      if (reduce || !inView || hover) { hw.classList.toggle('play', !reduce && inView); return; }
+      hw.classList.add('play');
+      timer = setTimeout(function () { set(cur % items.length + 1); }, DUR);
+    }
+    items.forEach(function (it) {
+      $('.hw-btn', it).addEventListener('click', function () { set(+it.getAttribute('data-s')); });
+    });
+    var list = $('.hw-list', hw);
+    if (mq('(hover: hover)')) {
+      list.addEventListener('mouseenter', function () { hover = true; hw.classList.add('paused'); clearTimeout(timer); });
+      list.addEventListener('mouseleave', function () { hover = false; hw.classList.remove('paused'); restart(); });
+    }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { var was = inView; inView = e.isIntersecting; if (inView && !was) set(cur); if (!inView) { clearTimeout(timer); hw.classList.remove('play'); } }); }, { threshold: .35 }).observe(hw);
+    hw.style.setProperty('--hw-dur', DUR + 'ms');
+    set(1);
+  })();
 
   /* display mock: modes */
   var MODES = {
@@ -359,7 +379,7 @@
       var k = st.lft === 'lt' ? 'small' : (st.lft === 'ge' && st.zona) ? (st.zona === 'costa' ? 'coast' : 'sat') : null;
       q2.classList.toggle('dim', st.lft !== 'ge');
       $$('button', q2).forEach(function (b) { b.disabled = st.lft !== 'ge'; });
-      if (!k) { out.innerHTML = '<p class="chk-wait">Rispondi alle domande per vedere il risultato.</p>'; return; }
+      if (!k) { out.innerHTML = '<span class="chk-step">' + (st.lft ? '1' : '0') + ' di 2 risposte</span><h3 class="chk-ph">Il risultato apparirà qui.</h3><p>Ti diciamo se il VMS è obbligatorio per la tua barca e quale apparato serve.</p>'; return; }
       var r = R[k], l = st.lft === 'ge' ? 12 : '';
       out.innerHTML = '<span class="chip ' + (k === 'small' ? 'l-future' : 'l-next') + '"><i></i>' + r.tag + '</span><h3>' + r.t + '</h3><p>' + r.p + '</p>' + (k !== 'small' ? '<p class="chk-note"><b>10 luglio 2027</b> la posizione va trasmessa ogni 30 minuti.</p>' : '') + '<div class="ctas">' + r.c.map(function (c, i) { return '<a class="btn ' + (i ? 'ghost' : '') + ' sm" href="' + c[1].replace('{l}', l) + '">' + c[0] + '</a>'; }).join('') + '</div>';
       if (G && !reduce) gsap.from(out.children, { opacity: 0, y: 12, duration: .5, stagger: .05, ease: 'power2.out' });
