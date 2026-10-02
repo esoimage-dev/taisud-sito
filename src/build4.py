@@ -474,9 +474,34 @@ P['qualita'] = ('Politica della qualità', page_hero(crumbs(('Chi siamo', 'chi-s
 
 exec(open(D + 'overrides.py').read())
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">'
+BASE = 'https://esoimage-dev.github.io/taisud-sito/'
+OGIMG = {'home': 'home', 'taibox': 'taibox', 't-fish': 't-fish', 'normativa': 'normativa', 'chi-siamo': 'chi-siamo'}
+SOCIAL = {
+ 'home': ('Tai Sud | La blue box TaiBox per la tua barca', 'Obbligo VMS dai 12 metri? TaiBox è l\'apparato di controllo satellitare autorizzato Masaf. Fornitura, installazione, traffico satellitare e assistenza.'),
+ 'chi-siamo': ('Tai Sud | Da Roma, dal 1988', 'Controllo satellitare per la pesca professionale. Progettiamo, installiamo e assistiamo gli apparati TaiBox. Sistema qualità ISO 9001:2015.'),
+ 'prodotti': ('Prodotti Tai Sud | TaiBox e T-Fish', 'La blue box TaiBox per il controllo satellitare e T-Fish per la tracciabilità del pescato. Tutto con installazione e assistenza.'),
+ 'taibox': ('TaiBox | La blue box VMS per pescherecci', 'Display touch 7", IP67, SOS e rapporti di anomalia. Apparato autorizzato Masaf, con installazione e assistenza Tai Sud.'),
+ 't-fish': ('T-Fish | Tracciabilità del pescato con QR code', 'Palmare, app e stampante Zebra per etichette con QR code. Il pescato tracciato dal molo al mercato.'),
+ 'normativa': ('Obbligo VMS dai 12 metri | Scadenze e FAQ', 'Cosa cambia per armatori e pescatori: scadenze, giornale di pesca elettronico, apparati ACS, ACI e ACM spiegati semplice.'),
+ 'assistenza': ('Assistenza TaiBox | Siamo qui per te', 'Errore sul display o apparato che non trasmette? Scrivici o chiama il 06 97840077. Assistenza tecnica Tai Sud.'),
+ 'modulistica': ('Modulistica TaiBox | Questionario e installazione', 'Questionario armatore e richiesta di prima installazione della blue box TaiBox. Scarica, compila e invia.'),
+ 'contatti': ('Contatti Tai Sud | Preventivo e assistenza', 'Preventivo TaiBox o T-Fish, assistenza e invio moduli. Viale G. Bonelli 341, Roma. Tel. 06 97840077.'),
+ 'lavora-con-noi': ('Lavora con Tai Sud | Tecnici e installatori', 'Cerchiamo tecnici e installatori per apparati di controllo satellitare della pesca. Invia il tuo CV.'),
+ 'qualita': ('Qualità ISO 9001:2015 | Tai Sud', 'Sistema qualità certificato IMQ e accreditato ACCREDIA per progettazione, produzione, installazione e assistenza.'),
+}
 def head(slug):
     t, d = SEO[slug]
-    return f'<meta name="description" content="{d}"><meta property="og:title" content="{t}"><meta property="og:description" content="{d}"><meta property="og:type" content="website">{FONTS}<style>{css}{EXTRA_CSS.get(slug, "")}</style>'
+    st, sd = SOCIAL[slug]
+    url = BASE if slug == 'home' else BASE + slug + '.html'
+    img = BASE + 'img/og-' + OGIMG.get(slug, 'default') + '.jpg'
+    icons = ('<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">'
+             '<link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#193D88">')
+    social = (f'<link rel="canonical" href="{url}"><meta property="og:site_name" content="Tai Sud"><meta property="og:locale" content="it_IT">'
+              f'<meta property="og:type" content="website"><meta property="og:url" content="{url}"><meta property="og:title" content="{st}">'
+              f'<meta property="og:description" content="{sd}"><meta property="og:image" content="{img}"><meta property="og:image:type" content="image/jpeg">'
+              f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{st}">'
+              f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{st}"><meta name="twitter:description" content="{sd}"><meta name="twitter:image" content="{img}">')
+    return f'<meta name="description" content="{d}">{icons}{social}{FONTS}<style>{css}{EXTRA_CSS.get(slug, "")}</style>'
 LIBS = ('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>'
         '<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>'
         '<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>')
