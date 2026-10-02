@@ -220,8 +220,7 @@ P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · d
 <section class="sec"><div class="wrap mt">
 <div class="stack">{eb('La storia')}<h2 class="h-l rv">Fondata e fatta crescere da Alberto Tirico.</h2>
 <p class="lead rv">Alberto Tirico fonda Tai Sud a Roma nel 1988 e la guida per oltre trent'anni.</p>
-<p class="muted rv">L'azienda nasce per progettare sistemi informativi ad alto contenuto tecnologico. Cresce nell'integrazione di soluzioni aziendali e, dal 2000, nei progetti chiavi in mano con una rete di partner qualificati. Con la TaiBox entra nel controllo satellitare della pesca.</p>
-<p class="muted rv">Oggi Tai Sud è guidata da Martina Tirico, Presidente. Alessandro Ciucci, responsabile tecnico, segue installazione, riparazione e montaggio degli apparati.</p></div>
+<p class="muted rv">L'azienda nasce per progettare sistemi informativi ad alto contenuto tecnologico. Cresce nell'integrazione di soluzioni aziendali e, dal 2000, nei progetti chiavi in mano con una rete di partner qualificati. Con la TaiBox entra nel controllo satellitare della pesca.</p></div>
 <figure class="photo cut ph-wait rv" aria-hidden="true"><span class="ph-note">Foto in arrivo</span></figure>
 </div></section>
 
