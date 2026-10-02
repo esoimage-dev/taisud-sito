@@ -1088,6 +1088,9 @@ table.req tbody tr:hover { background: #FAFBFD; }
 /* light mosaic */
 .mosaic.mz-light > i:not(.f) { filter: none; }
 @media (min-width: 861px) { .mosaic.mz-light { max-width: 520px; } }
+.photo.ph-wait { background-color: var(--chart); background-image: linear-gradient(#C9D5E8 1px, transparent 1px), linear-gradient(90deg, #C9D5E8 1px, transparent 1px); background-size: 32px 32px; min-height: 360px; position: relative; }
+.photo.ph-wait .ph-note { position: absolute; right: 16px; top: 16px; font: 500 10.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+@media (max-width: 760px) { .photo.ph-wait { min-height: 240px; } }
 /* TAI SUD coverage explainer: ACS, ACI o ACM. All rules scoped under .cov */
 .cov {
   --c-paper: var(--paper, #FFFFFF);

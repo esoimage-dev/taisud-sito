@@ -221,8 +221,8 @@ P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · d
 <div class="stack">{eb('La storia')}<h2 class="h-l rv">Fondata e fatta crescere da Alberto Tirico.</h2>
 <p class="lead rv">Alberto Tirico fonda Tai Sud a Roma nel 1988 e la guida per oltre trent'anni.</p>
 <p class="muted rv">L'azienda nasce per progettare sistemi informativi ad alto contenuto tecnologico. Cresce nell'integrazione di soluzioni aziendali e, dal 2000, nei progetti chiavi in mano con una rete di partner qualificati. Con la TaiBox entra nel controllo satellitare della pesca.</p>
-<p class="muted rv">Oggi la direzione è affidata a Martina Tirico e Alessandro.</p></div>
-{photo('magazzino.jpg', 'Apparati TaiBox pronti per la consegna nel magazzino Tai Sud', 'cut rv')}
+<p class="muted rv">Oggi Tai Sud è guidata da Martina Tirico, Presidente. Alessandro Ciucci, responsabile tecnico, segue installazione, riparazione e montaggio degli apparati.</p></div>
+<figure class="photo cut ph-wait rv" aria-hidden="true"><span class="ph-note">Foto in arrivo</span></figure>
 </div></section>
 
 <section class="sec mist"><div class="wrap two">
@@ -238,8 +238,8 @@ P['chi-siamo'] = ('Chi siamo', page_hero(crumbs(('Chi siamo',)), 'Chi siamo · d
 <div class="sec-head split"><div class="stack">{eb('Le persone')}<h2 class="h-l rv">Chi guida Tai Sud.</h2></div><p class="lead rv">Un riferimento diretto per ogni cliente.</p></div>
 <div class="people hs-m" data-dots>
 <div class="person rv"><div class="portrait"><svg class="pg" aria-hidden="true"><defs><pattern id="pg1" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#C9D5E8"/></pattern></defs><rect width="100%" height="100%" fill="url(#pg1)"/></svg><span class="ini">AT</span><span class="ph-note">Foto in arrivo</span></div><div><b>Alberto Tirico</b><span>Fondatore</span></div></div>
-<div class="person rv"><div class="portrait"><svg class="pg" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pg1)"/></svg><span class="ini">MT</span><span class="ph-note">Foto in arrivo</span></div><div><b>Martina Tirico</b><span>Amministratrice</span></div></div>
-<div class="person rv"><div class="portrait"><svg class="pg" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pg1)"/></svg><span class="ini">A</span><span class="ph-note">Foto in arrivo</span></div><div><b>Alessandro</b><span>Ruolo da confermare</span></div></div>
+<div class="person rv"><div class="portrait"><svg class="pg" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pg1)"/></svg><span class="ini">MT</span><span class="ph-note">Foto in arrivo</span></div><div><b>Martina Tirico</b><span>Presidente</span></div></div>
+<div class="person rv"><div class="portrait"><svg class="pg" aria-hidden="true"><rect width="100%" height="100%" fill="url(#pg1)"/></svg><span class="ini">AC</span><span class="ph-note">Foto in arrivo</span></div><div><b>Alessandro Ciucci</b><span>Responsabile tecnico · Installazione e laboratorio</span></div></div>
 </div></div></section>
 
 <section class="sec mist"><div class="wrap">

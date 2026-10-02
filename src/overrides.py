@@ -101,8 +101,6 @@ for a, b in [
     ('Quattro passaggi chiave.', 'Le tappe principali.'),
     ('<time>TaiBox</time><b>Produttore autorizzato</b>', '<time>Oggi</time><b>TaiBox nell\'elenco Masaf</b>'),
     ('<p class="lead rv">Un riferimento diretto per ogni cliente.</p>', '<p class="lead rv">Le persone che rispondono dei nostri apparati.</p>'),
-    ('<span>Amministratrice</span>', '<span>Direzione</span>'),
-    ('<span>Ruolo da confermare</span>', '<span>Direzione</span>'),
     ('<p class="lead rv">Coordiniamo professionisti dei settori in cui lavoriamo.</p>', '<p class="lead rv">Lavoriamo con professionisti qualificati nei settori in cui operiamo.</p>'),
     ('Progettazione, produzione, installazione e assistenza seguono un sistema qualità certificato.', 'Progettazione, produzione, installazione e assistenza seguono un sistema qualità certificato da IMQ, organismo accreditato ACCREDIA.'),
     ('Cerchiamo persone competenti, con voglia di crescere.', 'Cerchiamo tecnici e persone competenti.'),
