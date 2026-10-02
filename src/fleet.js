@@ -162,6 +162,7 @@
     // overall visual weight for markers at (x,y): narrow screens dim the top-left (text zone)
     function weight(x, y) {
       if (!narrow) return (focusRight && opts.fadeLeft !== false) ? 1 - 0.55 * clamp((0.44 - x / W) / 0.3, 0, 1) : 1;
+      if (opts.narrowDim === false) return 1;
       var v = clamp((0.48 - y / H) / 0.22, 0, 1) * clamp((0.9 - x / W) / 0.3, 0, 1);
       return 1 - 0.7 * v;
     }

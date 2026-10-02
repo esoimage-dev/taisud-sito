@@ -1067,6 +1067,27 @@ table.req tbody tr:hover { background: #FAFBFD; }
 @media (max-width: 860px) { .iso-row { grid-template-columns: 1fr; } }
 .fields { align-items: start; }
 .f { align-content: start; }
+
+/* ===== v7: mobile hero, map first ===== */
+@media (max-width: 960px) {
+  .hero.fleet { display: flex; flex-direction: column; background: var(--mist); }
+  .hero.fleet canvas#fleet { order: 1 !important; height: min(52svh, 440px) !important; -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent); mask-image: linear-gradient(180deg, #000 72%, transparent); }
+  .hero.fleet > .wrap { order: 2 !important; position: relative; z-index: 1; margin-top: -64px; padding-block: 0 34px !important; }
+  .hero.fleet .hero-foot { display: none; }
+  .hero.fleet .ping { display: none; }
+}
+@media (max-width: 560px) {
+  .hero.fleet .lead { display: none; }
+  .hero.fleet h1 { margin-bottom: 0; }
+  .hero.fleet .ctas { margin-top: 22px; display: grid; gap: 4px; }
+  .hero.fleet .ctas .btn.ghost { border-color: transparent; background: none; min-height: 44px; }
+}
+/* home T-Fish card: product photo on white */
+.sol .ph.dev { background: #fff; border-bottom: 1px solid var(--line); }
+.sol .ph.dev img { object-fit: contain; padding: 3% 5%; }
+/* light mosaic */
+.mosaic.mz-light > i:not(.f) { filter: none; }
+@media (min-width: 861px) { .mosaic.mz-light { max-width: 520px; } }
 </style></head><body><a class="skip-link" href="#main">Vai al contenuto</a><svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-arrow" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-chev" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -1158,7 +1179,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
 </div></div>
 
 <section class="sec"><div class="wrap mt">
-<div class="mosaic rv" style="--cols:4;--rows:3" aria-hidden="true"><i class="tl" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 0.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 0.0%"></i><i class="e"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:0.0% 50.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:33.3% 50.0%"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 50.0%"></i><i class="f tr"></i><i class="e"></i><i class="f bl"></i><i class="" style="background-image:url(img/pescatore-reti.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/pescatore-reti.jpg);background-position:100.0% 100.0%"></i></div>
+<div class="mosaic mz-light rv" style="--cols:4;--rows:3" aria-hidden="true"><i class="tl" style="background-image:url(img/pescatore-mz.jpg);background-position:0.0% 0.0%"></i><i class="" style="background-image:url(img/pescatore-mz.jpg);background-position:33.3% 0.0%"></i><i class="e"></i><i class="e"></i><i class="" style="background-image:url(img/pescatore-mz.jpg);background-position:0.0% 50.0%"></i><i class="" style="background-image:url(img/pescatore-mz.jpg);background-position:33.3% 50.0%"></i><i class="" style="background-image:url(img/pescatore-mz.jpg);background-position:66.7% 50.0%"></i><i class="tr" style="background-image:url(img/pescatore-mz.jpg);background-position:100.0% 50.0%"></i><i class="e"></i><i class="f bl"></i><i class="" style="background-image:url(img/pescatore-mz.jpg);background-position:66.7% 100.0%"></i><i class="br" style="background-image:url(img/pescatore-mz.jpg);background-position:100.0% 100.0%"></i></div>
 <div class="stack"><span class="eyebrow hin rv"><i class="tile-ico "></i>Chi siamo</span><h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
 <p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
 <ul class="blist rv"><li><i class="tile-ico"></i>TaiBox nell'elenco degli apparati autorizzati Masaf</li><li><i class="tile-ico"></i>Fornitore autorizzato di traffico satellitare e manutenzione</li><li><i class="tile-ico"></i>Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
@@ -1189,7 +1210,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <div class="sol-grid">
 <a class="sol rv" href="taibox.html"><span class="beam-border"></span><div class="ph"><img src="img/taibox-kit-wide.jpg" alt="Kit TaiBox con antenna satellitare" loading="lazy"><span class="chip"><i></i>Conforme alle nuove specifiche</span></div>
 <div class="body"><span class="eyebrow"><i class="tile-ico"></i>Blue box · ACS</span><h3 class="h-m">TaiBox</h3><ul class="blist"><li><i class="tile-ico"></i>Posizione e rotta al centro di controllo a terra, via satellite</li><li><i class="tile-ico"></i>Display touch 7" integrato, certificazione IP67</li><li><i class="tile-ico"></i>Tasto SOS e rapporti automatici di anomalia e manomissione</li></ul><span class="link-arrow">Scopri la TaiBox <svg><use href="#i-arrow"/></svg></span></div></a>
-<a class="sol rv" href="t-fish.html"><span class="beam-border"></span><div class="ph"><img src="img/mercato.jpg" alt="Pescato su ghiaccio" loading="lazy"></div>
+<a class="sol rv" href="t-fish.html"><span class="beam-border"></span><div class="ph dev"><img src="img/tfish-devices.jpg" alt="Palmare T-Fish e stampante Zebra portatile" loading="lazy"></div>
 <div class="body"><span class="eyebrow"><i class="tile-ico r-bl"></i>Tracciabilità</span><h3 class="h-m">T-Fish</h3><ul class="blist"><li><i class="tile-ico"></i>Palmare con app e stampante Zebra portatile</li><li><i class="tile-ico"></i>Etichette con codice a barre e QR code, stampate sul posto</li><li><i class="tile-ico"></i>Archivio automatico dei lotti</li></ul><span class="link-arrow">Scopri T-Fish <svg><use href="#i-arrow"/></svg></span></div></a>
 </div>
 <div class="svc-row rv">
@@ -1235,12 +1256,6 @@ table.req tbody tr:hover { background: #FAFBFD; }
 <li class="rv"><b>Assistenza e manutenzione</b><span>Traffico satellitare, interventi e aggiornamenti nel tempo.</span><span class="meta">06 97840077</span></li>
 </ol></div></section>
 
-<section class="sec mist tight"><div class="wrap"><div class="nums">
-<div class="num rv"><b data-count="1988" data-from="1960">1988</b><span>Anno di fondazione, a Roma</span></div>
-<div class="num rv"><b>IP<span data-count="67" data-from="0">67</span></b><span>Certificazione TaiBox, gennaio 2026</span></div>
-<div class="num rv"><b><span data-count="7" data-from="0">7</span><small>pollici</small></b><span>Display touch integrato</span></div>
-<div class="num rv"><b><span data-count="30" data-from="120">30</span><small>min</small></b><span>Frequenza obbligatoria dal 10 luglio 2027</span></div>
-</div></div></section>
 <section class="sec mist"><div class="wrap two">
 <div class="stack sticky"><span class="eyebrow hin rv"><i class="tile-ico "></i>FAQ</span><h2 class="h-l rv">Le domande degli armatori.</h2><p class="lead rv">Obblighi, frequenze e TaiBox in risposte brevi.</p><a class="btn ghost rv" href="normativa.html#faq" style="justify-self:start">Leggi tutte le FAQ <svg><use href="#i-arrow"/></svg></a></div>
 <div class="faq" data-faq="home"></div></div></section>
@@ -1492,6 +1507,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     // overall visual weight for markers at (x,y): narrow screens dim the top-left (text zone)
     function weight(x, y) {
       if (!narrow) return (focusRight && opts.fadeLeft !== false) ? 1 - 0.55 * clamp((0.44 - x / W) / 0.3, 0, 1) : 1;
+      if (opts.narrowDim === false) return 1;
       var v = clamp((0.48 - y / H) / 0.22, 0, 1) * clamp((0.9 - x / W) / 0.3, 0, 1);
       return 1 - 0.7 * v;
     }
@@ -2430,7 +2446,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     var copy = $('.hero .copy'), hero = $('.hero');
     var ro = $('#ping'), sp = ro ? ro.querySelector('span') : null, tmo;
     TaiFleet(cv, {
-      focusRight: true, fadeLeft: true,
+      focusRight: true, fadeLeft: true, narrowDim: false,
       avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = cv.getBoundingClientRect(); if (a.bottom < b.top + 4 || a.top > b.bottom - 4) return null; return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
       onPing: function (e) { if (!sp) return; sp.textContent = e.label + ' · trasmissione ricevuta'; ro.classList.add('flash'); clearTimeout(tmo); tmo = setTimeout(function () { ro.classList.remove('flash'); }, 500); }
     }).start();

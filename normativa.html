@@ -1067,6 +1067,27 @@ table.req tbody tr:hover { background: #FAFBFD; }
 @media (max-width: 860px) { .iso-row { grid-template-columns: 1fr; } }
 .fields { align-items: start; }
 .f { align-content: start; }
+
+/* ===== v7: mobile hero, map first ===== */
+@media (max-width: 960px) {
+  .hero.fleet { display: flex; flex-direction: column; background: var(--mist); }
+  .hero.fleet canvas#fleet { order: 1 !important; height: min(52svh, 440px) !important; -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent); mask-image: linear-gradient(180deg, #000 72%, transparent); }
+  .hero.fleet > .wrap { order: 2 !important; position: relative; z-index: 1; margin-top: -64px; padding-block: 0 34px !important; }
+  .hero.fleet .hero-foot { display: none; }
+  .hero.fleet .ping { display: none; }
+}
+@media (max-width: 560px) {
+  .hero.fleet .lead { display: none; }
+  .hero.fleet h1 { margin-bottom: 0; }
+  .hero.fleet .ctas { margin-top: 22px; display: grid; gap: 4px; }
+  .hero.fleet .ctas .btn.ghost { border-color: transparent; background: none; min-height: 44px; }
+}
+/* home T-Fish card: product photo on white */
+.sol .ph.dev { background: #fff; border-bottom: 1px solid var(--line); }
+.sol .ph.dev img { object-fit: contain; padding: 3% 5%; }
+/* light mosaic */
+.mosaic.mz-light > i:not(.f) { filter: none; }
+@media (min-width: 861px) { .mosaic.mz-light { max-width: 520px; } }
 /* TAI SUD coverage explainer: ACS, ACI o ACM. All rules scoped under .cov */
 .cov {
   --c-paper: var(--paper, #FFFFFF);
@@ -2319,7 +2340,7 @@ table.req tbody tr:hover { background: #FAFBFD; }
     var copy = $('.hero .copy'), hero = $('.hero');
     var ro = $('#ping'), sp = ro ? ro.querySelector('span') : null, tmo;
     TaiFleet(cv, {
-      focusRight: true, fadeLeft: true,
+      focusRight: true, fadeLeft: true, narrowDim: false,
       avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = cv.getBoundingClientRect(); if (a.bottom < b.top + 4 || a.top > b.bottom - 4) return null; return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
       onPing: function (e) { if (!sp) return; sp.textContent = e.label + ' · trasmissione ricevuta'; ro.classList.add('flash'); clearTimeout(tmo); tmo = setTimeout(function () { ro.classList.remove('flash'); }, 500); }
     }).start();

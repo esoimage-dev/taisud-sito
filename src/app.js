@@ -402,7 +402,7 @@
     var copy = $('.hero .copy'), hero = $('.hero');
     var ro = $('#ping'), sp = ro ? ro.querySelector('span') : null, tmo;
     TaiFleet(cv, {
-      focusRight: true, fadeLeft: true,
+      focusRight: true, fadeLeft: true, narrowDim: false,
       avoidRect: function () { if (!copy) return null; var a = copy.getBoundingClientRect(), b = cv.getBoundingClientRect(); if (a.bottom < b.top + 4 || a.top > b.bottom - 4) return null; return { x: a.left - b.left - 24, y: a.top - b.top - 24, w: a.width + 48, h: a.height + 48 }; },
       onPing: function (e) { if (!sp) return; sp.textContent = e.label + ' · trasmissione ricevuta'; ro.classList.add('flash'); clearTimeout(tmo); tmo = setTimeout(function () { ro.classList.remove('flash'); }, 500); }
     }).start();

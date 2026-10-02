@@ -31,7 +31,7 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 </div></div>
 
 <section class="sec"><div class="wrap mt">
-{mosaic('pescatore-reti.jpg', ['tl s s .', 's s s ftr', '. fbl s br'], 'rv')}
+{mosaic('pescatore-mz.jpg', ['tl s . .', 's s s tr', '. fbl s br'], 'mz-light rv')}
 <div class="stack">{eb('Chi siamo')}<h2 class="h-l rv">Dal 1988, tecnologia che lavora in mare.</h2>
 <p class="lead rv">Fondata a Roma da Alberto Tirico, Tai Sud è il riferimento di armatori e cooperative per il controllo satellitare della pesca.</p>
 <ul class="blist rv"><li>{TI}TaiBox nell'elenco degli apparati autorizzati Masaf</li><li>{TI}Fornitore autorizzato di traffico satellitare e manutenzione</li><li>{TI}Sistema qualità ISO 9001:2015 certificato IMQ</li></ul>
@@ -55,7 +55,7 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 <div class="sol-grid">
 <a class="sol rv" href="taibox.html"><span class="beam-border"></span><div class="ph"><img src="img/taibox-kit-wide.jpg" alt="Kit TaiBox con antenna satellitare" loading="lazy"><span class="chip"><i></i>Conforme alle nuove specifiche</span></div>
 <div class="body"><span class="eyebrow">{TI}Blue box · ACS</span><h3 class="h-m">TaiBox</h3><ul class="blist"><li>{TI}Posizione e rotta al centro di controllo a terra, via satellite</li><li>{TI}Display touch 7" integrato, certificazione IP67</li><li>{TI}Tasto SOS e rapporti automatici di anomalia e manomissione</li></ul><span class="link-arrow">Scopri la TaiBox {A}</span></div></a>
-<a class="sol rv" href="t-fish.html"><span class="beam-border"></span><div class="ph"><img src="img/mercato.jpg" alt="Pescato su ghiaccio" loading="lazy"></div>
+<a class="sol rv" href="t-fish.html"><span class="beam-border"></span><div class="ph dev"><img src="img/tfish-devices.jpg" alt="Palmare T-Fish e stampante Zebra portatile" loading="lazy"></div>
 <div class="body"><span class="eyebrow">{ti("r-bl")}Tracciabilità</span><h3 class="h-m">T-Fish</h3><ul class="blist"><li>{TI}Palmare con app e stampante Zebra portatile</li><li>{TI}Etichette con codice a barre e QR code, stampate sul posto</li><li>{TI}Archivio automatico dei lotti</li></ul><span class="link-arrow">Scopri T-Fish {A}</span></div></a>
 </div>
 <div class="svc-row rv">
@@ -83,12 +83,6 @@ P['home'] = ('Blue box VMS per pescherecci', f'''
 <li class="rv"><b>Assistenza e manutenzione</b><span>Traffico satellitare, interventi e aggiornamenti nel tempo.</span><span class="meta">06 97840077</span></li>
 </ol></div></section>
 
-<section class="sec mist tight"><div class="wrap"><div class="nums">
-<div class="num rv"><b data-count="1988" data-from="1960">1988</b><span>Anno di fondazione, a Roma</span></div>
-<div class="num rv"><b>IP<span data-count="67" data-from="0">67</span></b><span>Certificazione TaiBox, gennaio 2026</span></div>
-<div class="num rv"><b><span data-count="7" data-from="0">7</span><small>pollici</small></b><span>Display touch integrato</span></div>
-<div class="num rv"><b><span data-count="30" data-from="120">30</span><small>min</small></b><span>Frequenza obbligatoria dal 10 luglio 2027</span></div>
-</div></div></section>
 {FAQ_SEC.replace('Risposte brevi sulle regole VMS e sulla TaiBox.', 'Obblighi, frequenze e TaiBox in risposte brevi.').replace('>Tutte le FAQ ', '>Leggi tutte le FAQ ')}
 {PARTNERS}
 <section class="sec cta-mz"><div class="wrap">
